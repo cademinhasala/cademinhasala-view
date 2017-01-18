@@ -6,7 +6,8 @@ const port = process.env.PORT || 8080
 module.exports = {
     entry: [`webpack-dev-server/client?http://0.0.0.0:${port}/`, "webpack/hot/dev-server", "./src/index"],
     devServer: {
-        hot:true,        
+        hot:true,
+        port: port,     
     },
     plugins: [
         new HtmlWebpackPlugin({
