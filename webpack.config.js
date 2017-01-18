@@ -1,9 +1,10 @@
 const path = require('path') 
 const webpack = require('webpack') 
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const port = process.env.PORT || 8080
 
 module.exports = {
-    entry: ["webpack-dev-server/client?http://0.0.0.0:8080/", "webpack/hot/dev-server", "./src/index"],
+    entry: [`webpack-dev-server/client?http://0.0.0.0:${port}/`, "webpack/hot/dev-server", "./src/index"],
     devServer: {
         hot:true,        
     },
