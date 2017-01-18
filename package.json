@@ -7,7 +7,8 @@
     "build": "babel app.jsx --out-file app.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "webpack": "webpack",
-    "dev-server": "webpack-dev-server --progress --colors --inline --hot"
+    "dev-server": "webpack-dev-server --progress --colors --inline --hot",
+    "start": "npm run dev-server"
   },
   "author": "",
   "license": "ISC",
