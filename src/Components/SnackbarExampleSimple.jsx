@@ -6,8 +6,8 @@ import ActionGrade from 'material-ui/svg-icons/action/grade';
   
   const styles = {
       mediumIcon: {
-        width: 48,
-        height: 48,
+        width: 33,
+        height: 33,
         color: '#FFC107',
         
       },
