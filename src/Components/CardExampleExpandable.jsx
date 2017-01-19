@@ -13,7 +13,6 @@ export default class CardExampleWithAvatar extends React.Component {
     };
   }
 
-
   componentDidMount(){
     fetch('http://localhost:3000/turmas')
       .then((response) => response.json())
@@ -34,13 +33,31 @@ export default class CardExampleWithAvatar extends React.Component {
                 float: 'left',
               }}>
               <CardHeader
-                title={turmas.nomeMateria}
-                subtitle={turmas.codMateria}
+                title={turmas.disciplina}
+                subtitle={turmas.codTurma}
                 avatar="http://www.inovasite.com/wp-content/uploads/book_flat_book_png_book_icon_web_icon_png.png"
               />
-              <CardTitle title={turmas.local} subtitle="" />
+              <CardTitle title={turmas.sala} subtitle={turmas.lab} />
                 <CardText>
-                  Sala : {turmas.sala}
+                  Semestre : {turmas.semestre}
+              </CardText>
+              <CardText>
+                  Professor : {turmas.professor}
+              </CardText>
+              <CardText>
+                  Curso : {turmas.curso}
+              </CardText>
+              <CardText>
+                  Dia : {turmas.dia}
+              </CardText>
+              <CardText>
+                  Hora Inicio : {turmas.horaInicio}
+              </CardText>
+              <CardText>
+                  Hora Fim : {turmas.horaFim}
+              </CardText>
+              <CardText>
+                  Compartilhada : {turmas.compartilhada}
               </CardText>
               <SnackbarExampleSimple style={{
                 marginLeft: 16,
