@@ -28,10 +28,10 @@ export default class SelectFieldExampleSimple extends Component {
   }
 
   componentDidMount(){
-    fetch('http://localhost:3000/turmas')
+    fetch('http://5880f44eb810b0120011a47d.mockapi.io/turmas/turmas')
       .then((response) => response.json())
       .then((json) => {
-        this.setState({lista: json})
+        this.setState({lista: json[0].turmas})
       })
   }
 
