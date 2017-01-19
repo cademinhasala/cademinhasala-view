@@ -13,6 +13,7 @@ export default class CardExampleWithAvatar extends React.Component {
     };
   }
 
+
   componentDidMount(){
     fetch('http://localhost:3000/turmas')
       .then((response) => response.json())
