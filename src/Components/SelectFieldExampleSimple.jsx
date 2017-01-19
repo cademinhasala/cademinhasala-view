@@ -15,14 +15,10 @@ const styles = {
   },
 };
 
-/**
- * `SelectField` is implemented as a controlled component,
- * with the current selection set through the `value` property.
- * The `SelectField` can be disabled with the `disabled` property.
- */
+
 export default class SelectFieldExampleSimple extends Component {
   state = {
-    value: 1,
+    value: 0,
   };
 
   handleChange = (event, index, value) => this.setState({value});
