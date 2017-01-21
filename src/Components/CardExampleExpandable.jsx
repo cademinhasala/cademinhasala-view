@@ -25,8 +25,8 @@ export default class CardExampleWithAvatar extends React.Component {
   render() {
     return (
       <div>
-          {this.state.lista.map(turmas => 
-            <div>
+          {this.state.lista.map((turmas, index) => 
+            <div key={index}>
               <Card style={{
                 marginTop: 20,
                 marginLeft: 20,
