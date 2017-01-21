@@ -43,7 +43,7 @@
       "sala": "13 ANEXO B PA7"
     },
    {
-      "id": 1,
+      "id": 4,
       "semestre": "1º",
       "disciplina": "Química Geral - PA",
       "professor": "VIVIANA OLIVEIRA MATEUS",
@@ -55,6 +55,114 @@
       "lab": "",
       "compartilhada": "",
       "sala": "06 PA1"
+    },
+    { 
+      "id": 5,
+      "Sem": "1º",
+      "Disciplinas": "Química Geral - PA",
+      "Professor": "VIVIANA OLIVEIRA MATEUS",
+      "Curso": "Engenharia de Computação",
+      "Código": "MR01",
+      "Dia": "4QUI",
+      "Horário Inicial": "7:15",
+      "Horário Final": "8:30",
+      "Sala": "06 PA1"
+    },
+    {
+      "id": 6,
+      "Sem": "1º",
+      "Disciplinas": "Química Geral - PB",
+      "Professor": "VIVIANA OLIVEIRA MATEUS",
+      "Curso": "Engenharia de Computação",
+      "Código": "MR01",
+      "Dia": "4QUI",
+      "Horário Inicial": "8:40",
+      "Horário Final": "9:55",
+      "Sala": "06 PA1"
+    },
+    {
+      "id": 7,
+      "Sem": "1º",
+      "Disciplinas": "Química Geral",
+      "Professor": "VIVIANA OLIVEIRA MATEUS",
+      "Curso": "Engenharia de Computação",
+      "Código": "MR01",
+      "Dia": "4QUI",
+      "Horário Inicial": "10:05",
+      "Horário Final": "11:20",
+      "Sala": "06 PA1"
+    },
+    {
+      "id": 8,
+      "Sem": "1º",
+      "Disciplinas": "Introdução à Engenharia",
+      "Professor": "ANTONIA FERREIRA DOS SANTOS CRUZ",
+      "Curso": "Engenharia de Computação",
+      "Código": "MR01",
+      "Dia": "3QUA",
+      "Horário Inicial": "8:40",
+      "Horário Final": "9:55",
+      "Sala": "105 ANEXO B PA7"
+    },
+    {
+      "id": 9,
+      "Sem": "1º",
+      "Disciplinas": "Cálculo I",
+      "Professor": "ADELMO RIBEIRO DE JESUS",
+      "Curso": "Engenharia de Computação",
+      "Código": "MR01",
+      "Dia": "2TER",
+      "Horário Inicial": "10:05",
+      "Horário Final": "11:20",
+      "Sala": "105 ANEXO B PA7"
+    },
+    {
+      "id": 10,
+      "Sem": "1º",
+      "Disciplinas": "Cálculo I",
+      "Professor": "ADELMO RIBEIRO DE JESUS",
+      "Curso": "Engenharia de Computação",
+      "Código": "MR01",
+      "Dia": "2TER",
+      "Horário Inicial": "11:30",
+      "Horário Final": "12:45",
+      "Sala": "105 ANEXO B PA7"
+    },
+    {
+      "id": 11,
+      "Sem": "1º",
+      "Disciplinas": "Algoritmos e Programação",
+      "Professor": "CHRISTIANNE ORRICO DALFORNO",
+      "Curso": "Engenharia de Computação",
+      "Código": "MR01",
+      "Dia": "2TER",
+      "Horário Inicial": "7:15",
+      "Horário Final": "8:30",
+      "Sala": "105 ANEXO B PA7"
+    },
+    {
+      "id": 12,
+      "Sem": "1º",
+      "Disciplinas": "Algoritmos e Programação",
+      "Professor": "CHRISTIANNE ORRICO DALFORNO",
+      "Curso": "Engenharia de Computação",
+      "Código": "MR01",
+      "Dia": "2TER",
+      "Horário Inicial": "8:40",
+      "Horário Final": "9:55",
+      "Sala": "105 ANEXO B PA7"
+    },
+    {
+      "id": 13,
+      "Sem": "1º",
+      "Disciplinas": "Comunicação Profissional",
+      "Professor": "EAD 20",
+      "Curso": "Engenharia de Computação",
+      "Código": "MR01",
+      "Dia": "3QUA",
+      "Horário Inicial": "10:05",
+      "Horário Final": "11:20",
+      "Sala": "105 ANEXO B PA7"
     }
   ]
 }
