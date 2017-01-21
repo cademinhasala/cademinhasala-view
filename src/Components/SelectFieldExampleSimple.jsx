@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {connect} from 'react-redux';
 import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
 import IconButton from 'material-ui/IconButton';
@@ -6,6 +7,7 @@ import CloseIcon from 'material-ui/svg-icons/navigation/close';
 import filter from 'lodash/filter'
 import omit from 'lodash/omit'
 import uniq from 'lodash/uniq'
+import {setFilteredTurmas} from '../actions'
 
 const styles = {
   smallStyle: {
@@ -20,44 +22,32 @@ const styles = {
   },
 };
 
+class SelectFieldExampleSimple extends Component {
+  state = {
+    filters: {},
+  }
 
-export default class SelectFieldExampleSimple extends Component {
-
-  constructor(props){
-    super(props);
-    
-    this.state = {
-      filters: {},
-      turmas: [],
+  handleChange = (key) => (event, index, value) => {
+    const filters = {
+      ...this.state.filters,
+      [key]: value,
     }
+    this.setState({ filters })
+    const filteredTurmas = filter(this.props.turmas, filters)
+    this.props.setFilteredTurmas(filteredTurmas)
   }
-
-  componentDidMount(){
-    fetch('http://5880f44eb810b0120011a47d.mockapi.io/turmas/turmas')
-      .then((response) => response.json())
-      .then((json) => {
-        const turmas = json[0].turmas
-        this.setState({
-            turmas,
-          })
-      })
-  }
-
-  handleChange = (key) => (event, index, value) => this.setState({ filters: {
-    ...this.state.filters,
-    [key]: value,
-  }})
 
   clearFilter = (key) => () => {
-    this.setState({
-      filters: omit(this.state.filters, key),
-    })
+    const filters = omit(this.state.filters, key)
+    this.setState({ filters })
+    const filteredTurmas = filter(this.props.turmas, filters)
+    this.props.setFilteredTurmas(filteredTurmas)
   }
 
   render() {
-    const { filters, turmas } = this.state
+    const { turmas, filteredTurmas } = this.props
+    const { filters } = this.state
 
-    const filteredTurmas = filter(turmas, filters)
     const [ codTurmas, disciplinas, dias ] = filteredTurmas
       .reduce((arr, turma) => {
         const [ codTurmas, disciplinas, dias] = arr
@@ -113,3 +103,12 @@ export default class SelectFieldExampleSimple extends Component {
     );
   }
 }
+
+const mapStateToProps = (state) => ({
+  turmas: state.turmas,
+  filteredTurmas: state.filteredTurmas,
+})
+
+const mapDispatchToProps = { setFilteredTurmas }
+
+export default connect(mapStateToProps, mapDispatchToProps)(SelectFieldExampleSimple)

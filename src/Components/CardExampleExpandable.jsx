@@ -1,32 +1,20 @@
 import React from 'react';
+import {connect} from 'react-redux';
 import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
 import FlatButton from 'material-ui/FlatButton';
 import SnackbarExampleSimple from './SnackbarExampleSimple'
+import {getTurmas} from '../actions'
 
-export default class CardExampleWithAvatar extends React.Component {
-  
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      lista: []
-    };
-  }
-
-
-  componentDidMount(){
-    fetch('http://5880f44eb810b0120011a47d.mockapi.io/turmas/turmas')
-      .then((response) => response.json())
-      .then((json) => {
-        this.setState({lista: json[0].turmas})
-      })
+class CardExampleWithAvatar extends React.Component {
+  componentDidMount() {
+    this.props.getTurmas()
   }
 
   render() {
     return (
       <div>
-          {this.state.lista.map((turmas, index) => 
-            <div key={index}>
+          {this.props.turmas.map((turmas) => 
+            <div key={turmas.id}>
               <Card style={{
                 marginTop: 20,
                 marginLeft: 20,
@@ -72,13 +60,10 @@ export default class CardExampleWithAvatar extends React.Component {
   }
 }
 
+const mapStateToProps = (state) => ({
+  turmas: state.filteredTurmas,
+})
 
+const mapDispatchToProps = { getTurmas }
 
-
-
-
-
-
-
-
-         
+export default connect(mapStateToProps, mapDispatchToProps)(CardExampleWithAvatar)
