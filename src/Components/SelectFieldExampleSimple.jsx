@@ -11,12 +11,12 @@ import {setFilteredTurmas} from '../actions'
 
 const styles = {
   smallStyle: {
-    width: 150,
+    width: 250,
     marginTop: 30,
     marginLeft: 50,
   },
   greeatStyle: {
-    width: 400,
+    width: '97%',
     marginTop: 30,
     marginLeft: 50,
   },
@@ -87,7 +87,7 @@ class SelectFieldExampleSimple extends Component {
           <CloseIcon />
         </IconButton>
         <SelectField
-          floatingLabelText="Dia da Semana"
+          floatingLabelText="Horário"
           value={filters.dia}
           onChange={this.handleChange('dia')}
           style={styles.smallStyle}
