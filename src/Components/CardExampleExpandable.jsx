@@ -6,11 +6,14 @@ import Star from './Star'
 import {getTurmas} from '../actions'
 
 const styles = {
+  cardList: {
+
+  },
   card: {
-    marginTop: 20,
+    top: 20,
     marginLeft: 20,
     width: '43%',
-    height: 313,
+
     float: 'left',
     position: 'relative'
   },
@@ -70,7 +73,7 @@ class CardExampleWithAvatar extends Component {
 
   render() {
     return (
-        <div>
+        <div style={styles.cardList}>
           {this.props.turmas.map((turmas) =>
               <div key={turmas.id}
                    style={styles.card}
@@ -92,13 +95,13 @@ class CardExampleWithAvatar extends Component {
                   <article style={styles.article}>
                     <p>Professor: {turmas.professor}</p>
                     <p>{turmas.semestre} {turmas.curso}</p>
-                    <p>{turmas.compartilhada}</p>
+                    <p style={{height: 18}}>{turmas.compartilhada}</p>
                   </article>
                   <footer style={styles.footer}>
                     <div style={styles.timerIcon}>
                       <Time />
                     </div>
-                    <div style={styles.time}>{turmas.dia}</div>
+                    <div style={styles.time}>{turmas.dia}, {turmas.horaInicio} - {turmas.horaFim}</div>
                     <div style={styles.classStyle}>SALA {turmas.sala}</div>
                   </footer>
                 </Card>
