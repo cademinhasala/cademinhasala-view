@@ -9,7 +9,7 @@ const styles = {
   card: {
     marginTop: 20,
     marginLeft: 20,
-    width: '97%',
+    width: '43%',
     height: 313,
     float: 'left',
     position: 'relative'
