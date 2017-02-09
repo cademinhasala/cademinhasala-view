@@ -1,8 +1,8 @@
 import React from 'react'
 import {Provider} from 'react-redux'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
-import Card from './CardExampleExpandable'
-import SelectFieldExampleSimple from './SelectFieldExampleSimple'
+import CardClass from './CardClass'
+import Filters from './Filters'
 import LayoutAppBar from './LayoutAppBar'
 import store from '../store'
 
@@ -11,8 +11,8 @@ const App = () => (
         <MuiThemeProvider >
             <div>
                 <LayoutAppBar />
-                <SelectFieldExampleSimple />
-                <Card />
+                <Filters />
+                <CardClass />
             </div>
         </MuiThemeProvider>
     </Provider>
