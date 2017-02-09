@@ -1,0 +1,140 @@
+body {
+  background-color: #f1f1f1;
+}
+
+[hidden] {
+  display: none;
+}
+
+.searchDiv {
+  display: flex;
+  flex-direction: row;
+}
+
+.itemWrapper {
+  margin: 30px;
+  display: flex;
+  width: 340px;
+}
+
+.raisedButton {
+  position: absolute;
+  right: 0px;
+  top: 64px;
+}
+
+.close {
+  width: 52px;
+  right: 0px;
+  top: 28px;
+  position: relative;
+}
+
+.select {
+  width: 80% !important;
+  position: relative;
+}
+
+.buttonWrapper {
+  position: relative;
+  top: 30px;
+}
+
+.button {
+  width: 250px;
+}
+
+.cardList {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.card {
+  top: 20px;
+  margin: 20px;
+  width: 43%;
+}
+
+.bodyWrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  flex: 1;
+  display: flex;
+}
+
+.iconStyle {
+  margin: 10px;
+}
+
+.info {
+  top: 17px;
+  height: 86px;
+  position: relative;
+}
+
+.star {
+  height: 48px;
+  width: 50px;
+  margin-left: auto;
+  display: none;
+}
+
+article {
+  top: 0px;
+  flex: 2;
+  font-size: 16px;
+  font-family: cursive;
+  text-align: center;
+}
+
+footer {
+  flex: 3;
+  display: flex;
+  align-items: flex-end;
+}
+
+.timerIcon {
+  margin: 10px;
+}
+
+.time {
+  margin-bottom: 15px;
+}
+
+.classStyle {
+  margin-bottom: 15px;
+  left: 0px;
+  margin-left: auto;
+  margin-right: 20px;
+}
+
+@media only screen and (max-width: 920px) {
+  .searchDiv {
+    display: flex;
+    flex-direction: column;
+  }
+  .select {
+    width: 100% !important;
+  }
+  .close {
+    left: 25px;
+    top: 25px;
+    position: relative;
+  }
+  .button {
+    width: 100%;
+  }
+  .buttonWrapper {
+    top: 0px;
+    width: 100%;
+  }
+  .itemWrapper {
+    width: 80%;
+  }
+  .card {
+    width: 80%;
+  }
+}
