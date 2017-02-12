@@ -3,8 +3,7 @@ import AppBar from 'material-ui/AppBar';
 
 const LayoutAppBar = () => (
   <AppBar
-    title={'Class Finder'}
-    
+    title={'Cadê Minha Sala'}    
   />
 );
 
