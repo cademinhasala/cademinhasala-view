@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Card, CardText, CardHeader } from 'material-ui/Card';
+import { List, ListItem } from 'material-ui/List';
+import Subheader from 'material-ui/Subheader';
+import Divider from 'material-ui/Divider';
 import Time from 'material-ui/svg-icons/device/access-time';
 import Star from './Star'
 import { getTurmas } from '../actions'
@@ -20,42 +23,39 @@ class CardClass extends Component {
             >
             <Card>
               <CardHeader
+                title={turmas.disciplina}
+                subtitle={turmas.codTurma}
+                avatar="https://raw.githubusercontent.com/gabrielgene/class-finder/master/src/img/book.png"
                 actAsExpander={true}
                 showExpandableButton={true}
                 />
-              <div className="bodyWrapper">
-                <header>
-                  <div
-                    className="iconStyle">
-                    <img
-                      style={{ width: 65 }}
-                      src="img/book.png"
-                      />
-                  </div>
-                  <div className="info">
-                    <p>{turmas.codTurma}</p>
-                    <p>{turmas.disciplina}</p>
-                  </div>
-                  <div className="star">
-                    <Star />
-                  </div>
-                </header>
+              <article>
+                <div className="classStyle">SALA {turmas.sala}</div>
 
-                <article>
-                  <p>Professor: {turmas.professor}</p>
-                  <p>{turmas.semestre} {turmas.curso}</p>
-                  <p style={{ height: 18 }}>{turmas.compartilhada}</p>
-                </article>
-                
-              </div>
-              <CardText expandable={true}>
-                <footer>
-                  <div className="timerIcon">
-                    <Time />
-                  </div>
+
+                <div className="timer">
+                <div className="clock">
+                  <Time />
+                </div>
                   <div className="time">{turmas.dia}</div>
-                  <div className="classStyle">SALA {turmas.sala}</div>
-                </footer>
+                </div>
+
+
+              </article>
+              <CardText expandable={true}>
+                <Divider />
+                <List>
+                  <Subheader>Mais informações</Subheader>
+                  <ListItem
+                    primaryText={"Professor: " + turmas.professor}
+                    />
+                  <ListItem
+                    primaryText={"Curso: " + turmas.semestre + " " + turmas.curso}
+                    />
+                  <ListItem
+                    primaryText={"Compartilhada: " + turmas.compartilhada}
+                    />
+                </List>
               </CardText>
             </Card>
           </div>
