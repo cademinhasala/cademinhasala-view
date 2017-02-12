@@ -24,7 +24,7 @@ class CardClass extends Component {
                   <div
                     className="iconStyle">
                     <img
-                      style={{ width: 100 }}
+                      style={{ width: 65 }}
                       src="http://www.inovasite.com/wp-content/uploads/book_flat_book_png_book_icon_web_icon_png.png"
                       />
                   </div>

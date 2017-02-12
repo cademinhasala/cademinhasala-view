@@ -8,13 +8,12 @@ body {
 
 .searchDiv {
   display: flex;
-  flex-direction: row;
+  justify-content: center;
 }
 
 .itemWrapper {
   margin: 30px;
   display: flex;
-  width: 340px;
 }
 
 .raisedButton {
@@ -47,6 +46,7 @@ body {
 .cardList {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .card {
@@ -109,17 +109,21 @@ footer {
   margin-left: auto;
   margin-right: 20px;
 }
+@media only screen and (min-width: 1080px) {
+  .itemWrapper {
+    width: 340px;
+  }
+}
 
-@media only screen and (max-width: 920px) {
+@media only screen and (max-width: 1080px) {
   .searchDiv {
-    display: flex;
     flex-direction: column;
   }
   .select {
     width: 100% !important;
   }
   .close {
-    left: 25px;
+    left: 6px;
     top: 25px;
     position: relative;
   }
@@ -131,9 +135,13 @@ footer {
     width: 100%;
   }
   .itemWrapper {
-    width: 80%;
+    margin-top: 2px;
+    margin-bottom: 0px;
   }
   .card {
     width: 80%;
+  }
+  .info {
+    top: 0px;
   }
 }
