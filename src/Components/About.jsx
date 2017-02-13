@@ -1,21 +1,19 @@
 import React from 'react';
 import Paper from 'material-ui/Paper';
-import CardText from 'material-ui/Card';
+import { Card, CardText} from 'material-ui/Card';
 import Avatar from 'material-ui/Avatar';
 import Divider from 'material-ui/Divider';
 
 const About = () => (
   <div>
-    <Paper zDepth={3} >
-      <div className="aboutInfo">
-        <span>
+    <Card >
+        <CardText>
           Tudo começou no inicio do semestre passado, época de arthe e todo mundo pensando em algum tipo de projeto,
           até que meu amigo <strong> Michel Ribeiro </strong> teve uma sacada e lembrou desse problema relacionado
           ao descobrir onde é a sua sala de aula e aquele mural chato, mas depois pensamos em outro projeto. 
           O <strong>Cadê Minha Sala</strong> não ficou de lado, com o intuito de aprender estudamos nas ferias e 
           desenvolvemos o app, aqui estão os principais desenvolvedores e idealizadores. 
-    </span>
-      </div>
+    </CardText>
       <div className="profileWrapper">
         <div className="profile">
           <Avatar
@@ -52,7 +50,7 @@ const About = () => (
           <h2>Felipe Matos</h2>
         </div>
       </div>
-    </Paper>
+    </Card>
   </div >
 );
 
