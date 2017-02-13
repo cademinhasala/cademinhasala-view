@@ -9,11 +9,14 @@ body {
 .searchDiv {
   display: flex;
   justify-content: center;
+  flex-direction: column;
 }
 
 .itemWrapper {
   margin: 30px;
   display: flex;
+  margin-top: 2px;
+  margin-bottom: 0px;
 }
 
 .raisedButton {
@@ -36,7 +39,8 @@ body {
 
 .buttonWrapper {
   position: relative;
-  top: 30px;
+  top: 2px;
+  width: 100%;
 }
 
 .button {
@@ -52,6 +56,7 @@ body {
 .card {
   top: 20px;
   margin: 20px;
+  margin-bottom: 0;
   width: 30%;
 }
 
@@ -116,6 +121,18 @@ footer {
   margin-left: 72px;
   margin-right: auto;
 }
+
+.searchButton {
+  position: fixed;
+  bottom: 16px;
+  right: 16px;
+}
+
+.tabsContent {
+  overflow: auto;
+  height: calc(100vh - 74px);
+}
+
 @media only screen and (min-width: 1080px) {
   .itemWrapper {
     width: 340px;
@@ -152,7 +169,7 @@ footer {
   .card {
     width: 80%;
   }
-  .classStyle{
+  .classStyle {
     margin-bottom: 15px;
     left: 0px;
     margin-left: 0px;

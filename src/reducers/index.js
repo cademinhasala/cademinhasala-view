@@ -1,9 +1,10 @@
 import { handleActions } from 'redux-actions'
-import { getTurmas, setFilteredTurmas } from '../actions'
+import { getTurmas, setFilteredTurmas, setFilters } from '../actions'
 
 const initialState = {
     filteredTurmas: [],
     turmas: [],
+    filters: {},
 }
 
 export default handleActions({
@@ -15,5 +16,10 @@ export default handleActions({
     [setFilteredTurmas]: (state, action) => ({
         ...state,
         filteredTurmas: action.payload,
-    })
+    }),
+
+    [setFilters]: (state, action) => ({
+        ...state,
+        filters: action.payload,
+    }),
 }, initialState)

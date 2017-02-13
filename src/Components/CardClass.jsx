@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Card, CardText, CardHeader } from 'material-ui/Card';
+import DialogFilter from './DialogFilter'
 import { List, ListItem } from 'material-ui/List';
 import Subheader from 'material-ui/Subheader';
 import Divider from 'material-ui/Divider';
@@ -17,13 +18,13 @@ class CardClass extends Component {
   render() {
     return (
       <div className="cardList">
-        {this.props.turmas.map((turmas) =>
-          <div key={turmas.id}
+        {this.props.turmas.map((turmas, index) =>
+          <div key={index}
             className="card"
             >
             <Card>
               <CardHeader
-                title={turmas.disciplina}
+                title={turmas.dis}
                 subtitle={turmas.codTurma}
                 avatar="https://raw.githubusercontent.com/gabrielgene/class-finder/master/src/img/book.png"
                 actAsExpander={true}
@@ -47,19 +48,20 @@ class CardClass extends Component {
                 <List>
                   <Subheader>Mais informações</Subheader>
                   <ListItem
-                    primaryText={"Professor: " + turmas.professor}
+                    primaryText={"Professor: " + turmas.prof}
                     />
                   <ListItem
-                    primaryText={"Curso: " + turmas.semestre + " " + turmas.curso}
+                    primaryText={"Curso: " + turmas.sem + " " + turmas.curso}
                     />
                   <ListItem
-                    primaryText={"Compartilhada: " + turmas.compartilhada}
+                    primaryText={"Compartilhada: " + turmas.comp}
                     />
                 </List>
               </CardText>
             </Card>
           </div>
         )}
+        <DialogFilter />
       </div>
     );
   }
