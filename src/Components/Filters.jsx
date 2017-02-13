@@ -42,7 +42,7 @@ class Filters extends Component {
       .reduce((arr, turma) => {
         const [codTurmas, disciplinas, dias] = arr
         codTurmas.push(turma.codTurma)
-        disciplinas.push(turma.disciplina)
+        disciplinas.push(turma.dis)
         dias.push(turma.dia)
         return arr
       }, [[], [], []])
@@ -73,15 +73,15 @@ class Filters extends Component {
           <SelectField
             fullWidth
             floatingLabelText="Nome da Matéria"
-            value={filters.disciplina}
-            onChange={this.handleChange('disciplina')}
+            value={filters.dis}
+            onChange={this.handleChange('dis')}
             >
-            {disciplinas.map(disciplina =>
-              <MenuItem key={disciplina} value={disciplina} primaryText={disciplina} />
+            {disciplinas.map(dis =>
+              <MenuItem key={dis} value={dis} primaryText={dis} />
             )}
           </SelectField>
-          <div className="close" hidden={!filters.disciplina}>
-            <IconButton onTouchTap={this.clearFilter('disciplina')}>
+          <div className="close" hidden={!filters.dis}>
+            <IconButton onTouchTap={this.clearFilter('dis')}>
               <CloseIcon />
             </IconButton>
           </div>

@@ -1,26 +1,59 @@
 import React from 'react';
-import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
-import FlatButton from 'material-ui/FlatButton';
+import Paper from 'material-ui/Paper';
+import CardText from 'material-ui/Card';
+import Avatar from 'material-ui/Avatar';
+import Divider from 'material-ui/Divider';
 
 const About = () => (
-  <Card>
-    <CardHeader
-      title="Gabriel"
-      subtitle="Genê"
-      avatar="https://avatars2.githubusercontent.com/u/19671668?v=3&s=460"
-    />
-    <CardTitle title="Card title" subtitle="Card subtitle" />
-    <CardText>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-      Donec mattis pretium massa. Aliquam erat volutpat. Nulla facilisi.
-      Donec vulputate interdum sollicitudin. Nunc lacinia auctor quam sed pellentesque.
-      Aliquam dui mauris, mattis quis lacus id, pellentesque lobortis odio.
-    </CardText>
-    <CardActions>
-      <FlatButton label="Action1" />
-      <FlatButton label="Action2" />
-    </CardActions>
-  </Card>
+  <div>
+    <Paper zDepth={3} >
+      <div className="aboutInfo">
+        <span>
+          Tudo começou no inicio do semestre passado, época de arthe e todo mundo pensando em algum tipo de projeto,
+          até que meu amigo <strong> Michel Ribeiro </strong> teve uma sacada e lembrou desse problema relacionado
+          ao descobrir onde é a sua sala de aula e aquele mural chato, mas depois pensamos em outro projeto. 
+          O <strong>Cadê Minha Sala</strong> não ficou de lado, com o intuito de aprender estudamos nas ferias e 
+          desenvolvemos o app, aqui estão os principais desenvolvedores e idealizadores. 
+    </span>
+      </div>
+      <div className="profileWrapper">
+        <div className="profile">
+          <Avatar
+            size={150}
+            src="https://avatars2.githubusercontent.com/u/19671668?v=3&s=460"
+            />
+          <h2>Gabriel Genê</h2>
+        </div>
+
+        <Divider />
+        <div className="profile">
+          <Avatar
+            size={150}
+            src="https://scontent.fssa2-1.fna.fbcdn.net/v/t1.0-1/p160x160/1656_949649578423858_3589073284908035434_n.jpg?oh=e7adcc28027514b06327731cfe8130a9&oe=5938628A"
+            />
+          <h2>Michel Ribeiro</h2>
+        </div>
+
+        <Divider />
+        <div className="profile">
+          <Avatar
+            size={150}
+            src="https://avatars1.githubusercontent.com/u/22510441?v=3&s=460"
+            />
+          <h2>Rafael Vitor</h2>
+        </div>
+
+        <Divider />
+        <div className="profile">
+          <Avatar
+            size={150}
+            src="https://avatars1.githubusercontent.com/u/9686240?v=3&s=460"
+            />
+          <h2>Felipe Matos</h2>
+        </div>
+      </div>
+    </Paper>
+  </div >
 );
 
 export default About;
