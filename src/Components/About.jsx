@@ -27,7 +27,7 @@ const About = () => (
         <div className="profile">
           <Avatar
             size={150}
-            src=""
+            src="https://avatars0.githubusercontent.com/u/22729109?v=3&s=400"
             />
           <h2>Michel Ribeiro</h2>
         </div>
