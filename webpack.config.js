@@ -4,7 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const port = process.env.PORT || 8080
 
 module.exports = {
-    entry: "./src/index",
+    entry: ["babel-polyfill", "whatwg-fetch", "./src/index"],
     devServer: {
         host: "0.0.0.0",
         port: port,     
