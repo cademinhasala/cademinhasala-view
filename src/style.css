@@ -10,7 +10,7 @@ body {
   display: flex;
   justify-content: center;
   flex-direction: column;
-  bottom: 30px;
+  bottom: 15px;
   position: relative;
 }
 
