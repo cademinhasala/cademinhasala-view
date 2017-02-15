@@ -16,7 +16,7 @@ body {
 
 .itemWrapper {
   display: flex;
-  margin: 2px 30px 0px;
+  margin: 2px 30px 0;
 }
 
 .raisedButton {
