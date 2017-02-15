@@ -5,7 +5,7 @@ import DialogFilter from './DialogFilter'
 import { List, ListItem } from 'material-ui/List'
 import Subheader from 'material-ui/Subheader'
 import Divider from 'material-ui/Divider'
-import Time from 'material-ui/svg-icons/device/access-time'
+import Date from 'material-ui/svg-icons/action/date-range'
 import { getTurmas } from '../actions'
 
 
@@ -35,7 +35,7 @@ class CardClass extends Component {
 
                 <div className="timer">
                   <div className="clock">
-                    <Time />
+                    <Date />
                   </div>
                   <div className="time">{turmas.dia}</div>
                 </div>
