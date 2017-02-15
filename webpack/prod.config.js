@@ -57,11 +57,14 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        loader: ExtractTextPlugin.extract(['css?minimize']),
+        loader: ExtractTextPlugin.extract(['css?minimize&importLoaders=1', 'postcss']),
       },
     ],
   },
   resolve: {
     extensions: ['', '.js', '.jsx'],
   },
+  postcss: () => ([
+    require('autoprefixer'),
+  ]),
 };

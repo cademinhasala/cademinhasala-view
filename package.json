@@ -16,6 +16,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "autoprefixer": "^6.7.2",
     "babel-core": "^6.21.0",
     "babel-loader": "^6.2.10",
     "babel-polyfill": "^6.23.0",
@@ -34,6 +35,7 @@
     "lodash": "^4.17.4",
     "material-ui": "^0.16.6",
     "pm2": "^2.4.0",
+    "postcss-loader": "^1.3.0",
     "react": "^15.4.1",
     "react-dom": "^15.4.1",
     "react-redux": "^5.0.1",
