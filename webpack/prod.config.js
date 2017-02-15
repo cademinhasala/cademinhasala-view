@@ -1,3 +1,4 @@
+const CompressionPlugin = require('compression-webpack-plugin')
 const path = require('path')
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
@@ -28,6 +29,11 @@ module.exports = {
     new webpack.optimize.DedupePlugin(),
     new webpack.optimize.OccurrenceOrderPlugin(),
     new ExtractTextPlugin('[contenthash].[name].css'),
+    new CompressionPlugin({
+      asset: "[path].gz[query]",
+      algorithm: "gzip",
+      minRatio: 0.8
+    }),
   ],
   output: {
     path: resolve('../dist'),
