@@ -8,6 +8,7 @@ import SearchIcon from 'material-ui/svg-icons/action/search'
 import { white } from 'material-ui/styles/colors'
 const customContentStyle = {
   width: '80%',
+  height: '80%',
   maxWidth: 'none',
 };
 
@@ -27,10 +28,10 @@ export default class DialogFilter extends React.Component {
   render() {
     const actions = [
       <FlatButton
-        label="Fechar"
+        label="Ok"
         primary={true}
         onTouchTap={this.handleClose}
-      />,
+        />,
     ];
 
     return (
@@ -49,7 +50,7 @@ export default class DialogFilter extends React.Component {
           open={this.state.open}
           onRequestClose={this.handleClose}
           contentStyle={customContentStyle}
-        >
+          >
           <Filters />
         </Dialog>
       </div>
