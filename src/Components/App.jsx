@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { PureComponent } from 'react'
 import { Provider } from 'react-redux'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import CardClass from './CardClass'
@@ -15,23 +15,43 @@ const muiTheme = getMuiTheme({
     primary2Color: blueGrey700,
     accent1Color: deepOrangeA400,
   },
-});
+})
 
-const App = () => (
-  <Provider store={store}>
-    <MuiThemeProvider muiTheme={muiTheme}>
-      <Tabs
-        contentContainerClassName="tabsContent"
-      >
-        <Tab icon={<FontIcon className="muidocs-icon-action-home" />} label="Cadê Minha Sala">
-          <CardClass />
-        </Tab>
-        <Tab label="Sobre">
-          <About />
-        </Tab>
-      </Tabs>
-    </MuiThemeProvider>
-  </Provider>
-)
+class App extends PureComponent {
+  state = { currentTab: 0 }
+
+  handleChange = (value) => {
+    this.setState({
+      currentTab: value,
+    })
+  }
+
+  render() {
+    const {currentTab} = this.state
+
+    return (
+      <Provider store={store}>
+        <MuiThemeProvider muiTheme={muiTheme}>
+          <Tabs
+            contentContainerClassName="tabsContent"
+            onChange={this.handleChange}
+            value={currentTab}
+          >
+            <Tab
+              label="Cadê Minha Sala"
+              icon={<FontIcon className="muidocs-icon-action-home" />}
+              value={0}
+            >
+              <CardClass />
+            </Tab>
+            <Tab label="Sobre" value={1}>
+              {currentTab === 1 && <About />}
+            </Tab>
+          </Tabs>
+        </MuiThemeProvider>
+      </Provider>
+    )
+  }
+}
 
 export default App
