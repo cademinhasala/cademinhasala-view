@@ -15,21 +15,19 @@ body {
 }
 
 .itemWrapper {
-  margin: 30px;
   display: flex;
-  margin-top: 2px;
-  margin-bottom: 0px;
+  margin: 2px 30px 0px;
 }
 
 .raisedButton {
   position: absolute;
-  right: 0px;
+  right: 0;
   top: 64px;
 }
 
 .close {
   width: 52px;
-  right: 0px;
+  right: 0;
   top: 28px;
   position: relative;
 }
@@ -57,8 +55,7 @@ body {
 
 .card {
   top: 20px;
-  margin: 20px;
-  margin-bottom: 0;
+  margin: 20px 20px 0;
   width: 30%;
 }
 
@@ -119,7 +116,7 @@ footer {
 
 .classStyle {
   margin-bottom: 15px;
-  left: 0px;
+  left: 0;
   margin-left: 72px;
   margin-right: auto;
 }
@@ -147,8 +144,7 @@ footer {
   align-items: center;
   top: 15px;
   position: relative;
-  margin: auto;
-  margin-bottom: 15px;
+  margin: auto auto 15px;
 }
 
 .aboutFooter {
@@ -160,8 +156,7 @@ footer {
   position: relative;
   top: 17px;
   width: 581px;
-  margin: auto;
-  margin-bottom: 20px;
+  margin: auto auto 20px;
   font-family: Roboto, sans-serif;
   font-size: 20px;
 }
@@ -176,42 +171,52 @@ footer {
   .profileWrapper {
     flex-direction: column;
   }
+
   article {
     flex-direction: column;
     align-items: center;
   }
+
   .searchDiv {
     flex-direction: column;
   }
+
   .select {
     width: 100% !important;
   }
+
   .close {
     left: 6px;
     top: 25px;
     position: relative;
   }
+
   .button {
     width: 100%;
   }
+
   .buttonWrapper {
-    top: 0px;
+    top: 0;
     width: 100%;
   }
+
   .itemWrapper {
     margin-top: 2px;
-    margin-bottom: 0px;
+    margin-bottom: 0;
   }
+
   .card {
     width: 80%;
   }
+
   .classStyle {
     margin-bottom: 15px;
-    left: 0px;
-    margin-left: 0px;
-    margin-right: 0px;
+    left: 0;
+    margin-left: 0;
+    margin-right: 0;
   }
+
   .info {
-    top: 0px;
+    top: 0;
   }
 }

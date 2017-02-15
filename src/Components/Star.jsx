@@ -1,7 +1,7 @@
-import React, {Component}from 'react';
-import Snackbar from 'material-ui/Snackbar';
-import IconButton from 'material-ui/IconButton';
-import ActionGrade from 'material-ui/svg-icons/action/grade';
+import React, { Component } from 'react'
+import Snackbar from 'material-ui/Snackbar'
+import IconButton from 'material-ui/IconButton'
+import ActionGrade from 'material-ui/svg-icons/action/grade'
 
 const styles = {
   mediumIcon: {
@@ -39,22 +39,22 @@ export default class Star extends Component {
 
   render() {
     return (
-        <div>
-          <IconButton
-              onTouchTap={this.handleTouchTap}
-              iconStyle={styles.mediumIcon}
-              style={styles.medium}
-          >
-            <ActionGrade  />
-          </IconButton>
-          <Snackbar
-              open={this.state.open}
-              message="Essa turma foi adicionada aos seus favoritos"
-              autoHideDuration={4000}
-              onRequestClose={this.handleRequestClose}
-              action='Favoritos'
-          />
-        </div>
+      <div>
+        <IconButton
+          onTouchTap={this.handleTouchTap}
+          iconStyle={styles.mediumIcon}
+          style={styles.medium}
+        >
+          <ActionGrade />
+        </IconButton>
+        <Snackbar
+          open={this.state.open}
+          message="Essa turma foi adicionada aos seus favoritos"
+          autoHideDuration={4000}
+          onRequestClose={this.handleRequestClose}
+          action='Favoritos'
+        />
+      </div>
     );
   }
 }
