@@ -57,6 +57,8 @@ class Filters extends Component {
             floatingLabelText="Dia"
             value={filters.dia}
             onChange={this.handleChange('dia')}
+            maxHeight={300}
+            autoWidth={true}
             >
             {dias.map(dia =>
               <MenuItem key={dia} value={dia} primaryText={dia} />
@@ -75,6 +77,8 @@ class Filters extends Component {
             floatingLabelText="Nome da Matéria"
             value={filters.dis}
             onChange={this.handleChange('dis')}
+            maxHeight={300}
+            autoWidth={true}
             >
             {disciplinas.map(dis =>
               <MenuItem key={dis} value={dis} primaryText={dis} />
@@ -93,6 +97,8 @@ class Filters extends Component {
             floatingLabelText="Código da Turma"
             value={filters.codTurma}
             onChange={this.handleChange('codTurma')}
+            maxHeight={300}
+            autoWidth={true}
             >
             {codTurmas.map(codTurma =>
               <MenuItem key={codTurma} value={codTurma} primaryText={codTurma} />
