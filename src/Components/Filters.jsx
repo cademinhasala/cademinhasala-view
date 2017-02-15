@@ -54,16 +54,16 @@ class Filters extends Component {
         <div className="itemWrapper">
           <SelectField
             fullWidth
-            floatingLabelText="Código da Turma"
-            value={filters.codTurma}
-            onChange={this.handleChange('codTurma')}
-          >
-            {codTurmas.map(codTurma =>
-              <MenuItem key={codTurma} value={codTurma} primaryText={codTurma} />
+            floatingLabelText="Dia"
+            value={filters.dia}
+            onChange={this.handleChange('dia')}
+            >
+            {dias.map(dia =>
+              <MenuItem key={dia} value={dia} primaryText={dia} />
             )}
           </SelectField>
-          <div className="close" hidden={!filters.codTurma}>
-            <IconButton onTouchTap={this.clearFilter('codTurma')}>
+          <div className="close" hidden={!filters.dia}>
+            <IconButton style={{ color: '#FFC107' }} onTouchTap={this.clearFilter('dia')}>
               <CloseIcon />
             </IconButton>
           </div>
@@ -75,7 +75,7 @@ class Filters extends Component {
             floatingLabelText="Nome da Matéria"
             value={filters.dis}
             onChange={this.handleChange('dis')}
-          >
+            >
             {disciplinas.map(dis =>
               <MenuItem key={dis} value={dis} primaryText={dis} />
             )}
@@ -90,16 +90,16 @@ class Filters extends Component {
         <div className="itemWrapper">
           <SelectField
             fullWidth
-            floatingLabelText="Horário"
-            value={filters.dia}
-            onChange={this.handleChange('dia')}
-          >
-            {dias.map(dia =>
-              <MenuItem key={dia} value={dia} primaryText={dia} />
+            floatingLabelText="Código da Turma"
+            value={filters.codTurma}
+            onChange={this.handleChange('codTurma')}
+            >
+            {codTurmas.map(codTurma =>
+              <MenuItem key={codTurma} value={codTurma} primaryText={codTurma} />
             )}
           </SelectField>
-          <div className="close" hidden={!filters.dia}>
-            <IconButton style={{ color: '#FFC107' }} onTouchTap={this.clearFilter('dia')}>
+          <div className="close" hidden={!filters.codTurma}>
+            <IconButton onTouchTap={this.clearFilter('codTurma')}>
               <CloseIcon />
             </IconButton>
           </div>
@@ -110,6 +110,7 @@ class Filters extends Component {
             <RaisedButton className="button" label="Limpar Tudo" onTouchTap={this.clearFilters} />
           </div>
         </div>
+
       </div>
     );
   }
