@@ -2,8 +2,10 @@ const CompressionPlugin = require('compression-webpack-plugin')
 const path = require('path')
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const port = process.env.PORT || 8080
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
+
+const host = '0.0.0.0'
+const port = process.env.PORT || 8080
 
 function resolve(to) {
   return path.resolve(__dirname, to)
@@ -12,7 +14,7 @@ function resolve(to) {
 module.exports = {
   entry: ['babel-polyfill', 'whatwg-fetch', './src/index'],
   devServer: {
-    host: '0.0.0.0',
+    host,
     port,
   },
   plugins: [

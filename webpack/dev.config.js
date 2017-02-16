@@ -1,6 +1,8 @@
 const path = require('path')
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+
+const host = '0.0.0.0'
 const port = process.env.PORT || 8080
 
 function resolve(to) {
@@ -8,9 +10,11 @@ function resolve(to) {
 }
 
 module.exports = {
-  entry: ['babel-polyfill', 'whatwg-fetch', './src/index'],
+  entry: ['webpack/hot/dev-server', './src/index'],
   devServer: {
-    host: '0.0.0.0',
+    inline: true,
+    hot: true,
+    host,
     port,
   },
   devtool: 'cheap-module-eval-source-map',
@@ -18,10 +22,19 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: resolve('../src/index.html'),
     }),
+    new webpack.optimize.OccurenceOrderPlugin(),
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.NoErrorsPlugin(),
+    new webpack.DefinePlugin({
+      'process.env': {
+        NODE_ENV: JSON.stringify('development'),
+      },
+    }),
   ],
   output: {
-    path: resolve('../dist'),
     filename: 'app.js',
+    path: resolve('../dist'),
+    publicPath: `http://${host}:${port}/`,
   },
   module: {
     loaders: [
@@ -32,7 +45,7 @@ module.exports = {
       {
         test: /\.jsx?$/,
         exclude: /node_modules/,
-        loader: 'babel-loader',
+        loaders: ['react-hot', 'babel'],
       },
       {
         test: /\.css$/,
