@@ -35,7 +35,7 @@ export default class DialogFilter extends React.Component {
     ];
 
     return (
-      <div>
+      <div style={{ position: 'absolute' }}>
         <FloatingActionButton
           secondary
           className="searchButton"

@@ -1,3 +1,11 @@
+* {
+  box-sizing: inherit;  
+}
+
+html {
+  box-sizing: border-box;
+}
+
 body {
   background-color: #f1f1f1;
 }
@@ -50,12 +58,12 @@ body {
 .cardList {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-around;
+  padding: 20px; 
 }
 
 .card {
-  top: 20px;
-  margin: 20px 20px 0;
+  margin: 20px 0px 0;
   width: 30%;
 }
 
@@ -116,7 +124,6 @@ footer {
 
 .classStyle {
   margin-bottom: 15px;
-  left: 0;
   margin-left: 72px;
   margin-right: auto;
 }
