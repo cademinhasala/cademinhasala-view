@@ -6,13 +6,13 @@ import IconButton from 'material-ui/IconButton'
 import RaisedButton from 'material-ui/RaisedButton'
 import CloseIcon from 'material-ui/svg-icons/navigation/close'
 import filter from 'lodash/filter'
+import compose from 'lodash/flowRight'
 import omit from 'lodash/omit'
-import uniq from 'lodash/uniq'
+import sortBy from 'lodash/sortBy'
+import sortedUniq from 'lodash/sortedUniq'
 import { setFilteredTurmas, setFilters } from '../actions'
 
-
 class Filters extends Component {
-
   handleChange = (key) => (event, index, value) => {
     const filters = {
       ...this.props.filters,
@@ -37,7 +37,7 @@ class Filters extends Component {
   }
 
   render() {
-    const { turmas, filteredTurmas, filters } = this.props
+    const { filteredTurmas, filters } = this.props
     const [codTurmas, disciplinas, dias] = filteredTurmas
       .reduce((arr, turma) => {
         const [codTurmas, disciplinas, dias] = arr
@@ -46,7 +46,7 @@ class Filters extends Component {
         dias.push(turma.dia)
         return arr
       }, [[], [], []])
-      .map(uniq)
+      .map(compose(sortedUniq, sortBy))
 
     return (
       <div className="searchDiv">
@@ -59,7 +59,7 @@ class Filters extends Component {
             onChange={this.handleChange('dia')}
             maxHeight={300}
             autoWidth={true}
-            >
+          >
             {dias.map(dia =>
               <MenuItem key={dia} value={dia} primaryText={dia} />
             )}
@@ -79,7 +79,7 @@ class Filters extends Component {
             onChange={this.handleChange('dis')}
             maxHeight={300}
             autoWidth={true}
-            >
+          >
             {disciplinas.map(dis =>
               <MenuItem key={dis} value={dis} primaryText={dis} />
             )}
@@ -99,7 +99,7 @@ class Filters extends Component {
             onChange={this.handleChange('codTurma')}
             maxHeight={300}
             autoWidth={true}
-            >
+          >
             {codTurmas.map(codTurma =>
               <MenuItem key={codTurma} value={codTurma} primaryText={codTurma} />
             )}
