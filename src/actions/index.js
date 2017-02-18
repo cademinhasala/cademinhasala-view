@@ -9,9 +9,7 @@ export const {
     .then((response) => response.json())
     .then((turmas) => (
       turmas.map(turma => {
-        turma.hInicio = floatToHour(turma.hInicio)
-        turma.hFim = floatToHour(turma.hFim)
-        turmas.dia = `${turma.dia}, ${turma.hInicio} - ${turma.hFim}`
+        turma.dia = `${turma.dia}, ${turma.hInicio} - ${turma.hFim}`
         return turma
       })
     ))
