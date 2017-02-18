@@ -1,3 +1,3 @@
-const koa = require('koa')
+import koa from 'koa'
 
-module.exports = koa()
+export default koa()

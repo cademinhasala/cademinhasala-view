@@ -13,4 +13,4 @@ router
     })
   })
 
-module.exports = router
+export default router

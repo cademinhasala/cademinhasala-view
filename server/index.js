@@ -1,10 +1,10 @@
-const app = require('./app')
-const conditional = require('koa-conditional-get')
-const etag = require('koa-etag')
-const logger = require('koa-logger')
-const serve = require('koa-static')
-const views = require('koa-views')
-const htmlRouter = require('./routes/html')
+import conditional from 'koa-conditional-get'
+import etag from 'koa-etag'
+import logger from 'koa-logger'
+import serve from 'koa-static'
+import views from 'koa-views'
+import app from './app'
+import htmlRouter from './routes/html'
 
 const port = process.env.PORT || 8080
 
