@@ -1,10 +1,8 @@
-import React, { PureComponent } from 'react'
-import { Provider } from 'react-redux'
+import React, { PropTypes, PureComponent } from 'react'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import CardClass from './CardClass'
 import About from './About'
 import FontIcon from 'material-ui/FontIcon'
-import store from '../store'
 import { Tabs, Tab } from 'material-ui/Tabs'
 import getMuiTheme from 'material-ui/styles/getMuiTheme'
 import { blueGrey500, deepOrangeA400, blueGrey700 } from 'material-ui/styles/colors'
@@ -27,29 +25,27 @@ class App extends PureComponent {
   }
 
   render() {
-    const {currentTab} = this.state
+    const { currentTab } = this.state
 
     return (
-      <Provider store={store}>
-        <MuiThemeProvider muiTheme={muiTheme}>
-          <Tabs
-            contentContainerClassName="tabsContent"
-            onChange={this.handleChange}
-            value={currentTab}
+      <MuiThemeProvider muiTheme={muiTheme}>
+        <Tabs
+          contentContainerClassName="tabsContent"
+          onChange={this.handleChange}
+          value={currentTab}
+        >
+          <Tab
+            label="Cadê Minha Sala"
+            icon={<FontIcon className="muidocs-icon-action-home" />}
+            value={0}
           >
-            <Tab
-              label="Cadê Minha Sala"
-              icon={<FontIcon className="muidocs-icon-action-home" />}
-              value={0}
-            >
-              <CardClass />
-            </Tab>
-            <Tab label="Sobre" value={1}>
-              {currentTab === 1 && <About />}
-            </Tab>
-          </Tabs>
-        </MuiThemeProvider>
-      </Provider>
+            <CardClass />
+          </Tab>
+          <Tab label="Sobre" value={1}>
+            {currentTab === 1 && <About />}
+          </Tab>
+        </Tabs>
+      </MuiThemeProvider>
     )
   }
 }

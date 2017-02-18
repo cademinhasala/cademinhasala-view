@@ -23,7 +23,7 @@ rimrafSync(resolve('../build/'))
 module.exports = [
   // Server
   {
-    entry: './server/index.js',
+    entry: ['isomorphic-fetch', './server/index.js'],
     externals: [nodeExternals()],
     output: {
       filename: '[name].js',

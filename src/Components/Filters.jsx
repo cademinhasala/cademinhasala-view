@@ -13,6 +13,14 @@ import sortedUniq from 'lodash/sortedUniq'
 import { setFilteredTurmas, setFilters } from '../actions'
 
 class Filters extends Component {
+  // To avoid copying turmas to filteredTurmas and increasing the size of HTML from server-rendering
+  componentDidMount() {
+    const { filteredTurmas, turmas } = this.props
+    if (filteredTurmas.length === 0 && turmas.length > 0) {
+      this.props.setFilteredTurmas(turmas)
+    }
+  }
+
   handleChange = (key) => (event, index, value) => {
     const filters = {
       ...this.props.filters,
@@ -59,7 +67,7 @@ class Filters extends Component {
             onChange={this.handleChange('dis')}
             maxHeight={300}
             autoWidth={true}
-            >
+          >
             {disciplinas.map(dis =>
               <MenuItem key={dis} value={dis} primaryText={dis} />
             )}
@@ -79,7 +87,7 @@ class Filters extends Component {
             onChange={this.handleChange('dia')}
             maxHeight={300}
             autoWidth={true}
-            >
+          >
             {dias.map(dia =>
               <MenuItem key={dia} value={dia} primaryText={dia} />
             )}

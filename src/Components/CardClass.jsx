@@ -18,8 +18,19 @@ class CardClass extends PureComponent {
     page: 0,
   }
 
+  componentWillMount() {
+    if (this.props.turmas.length > 0) {
+      this.setState({
+        items: this.props.turmas.slice(0, CardClass.PAGE_SIZE),
+        page: 1,
+      })
+    }
+  }
+
   componentDidMount() {
-    this.props.getTurmas()
+    if (this.props.turmas.length === 0) {
+      this.props.getTurmas()
+    }
   }
 
   componentWillReceiveProps(nextProps) {
@@ -105,7 +116,9 @@ class CardClass extends PureComponent {
 }
 
 const mapStateToProps = (state) => ({
-  turmas: state.filteredTurmas,
+  turmas: state.filteredTurmas.length > 0
+    ? state.filteredTurmas
+    : state.turmas,
 })
 
 const mapDispatchToProps = { getTurmas }

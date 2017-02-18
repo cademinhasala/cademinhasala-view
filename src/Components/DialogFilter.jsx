@@ -15,15 +15,15 @@ const customContentStyle = {
 export default class DialogFilter extends React.Component {
   state = {
     open: false,
-  };
+  }
 
   handleOpen = () => {
     this.setState({ open: true });
-  };
+  }
 
   handleClose = () => {
     this.setState({ open: false });
-  };
+  }
 
   render() {
     const actions = [
@@ -32,7 +32,7 @@ export default class DialogFilter extends React.Component {
         primary={true}
         onTouchTap={this.handleClose}
         />,
-    ];
+    ]
 
     return (
       <div style={{ position: 'absolute' }}>
@@ -54,6 +54,6 @@ export default class DialogFilter extends React.Component {
           <Filters />
         </Dialog>
       </div>
-    );
+    )
   }
 }

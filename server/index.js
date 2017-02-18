@@ -11,7 +11,6 @@ const port = process.env.PORT || 8080
 app.use(logger())
 
 app.use(conditional())
-app.use(etag())
 
 const root = './build/web'
 app.use(views(root, {
@@ -21,6 +20,8 @@ app.use(views(root, {
   },
 }))
 app.use(htmlRouter.routes())
+
+app.use(etag())
 
 const ONE_YEAR = 365 * 24 * 60 * 60 * 1000
 app.use(serve(root, { maxage: ONE_YEAR }))
