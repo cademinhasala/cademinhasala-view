@@ -33,6 +33,8 @@
     "koa-conditional-get": "^1.0.3",
     "koa-etag": "^2.1.1",
     "koa-logger": "^1.3.1",
+    "koa-router": "^5.4.0",
+    "koa-send": "^3.3.0",
     "koa-static": "^2.1.0",
     "lodash": "^4.17.4",
     "material-ui": "^0.16.6",
