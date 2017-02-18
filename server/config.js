@@ -1,3 +1,3 @@
 const path = require('path')
 
-exports.root = path.resolve(__dirname, '../dist')
+exports.root = path.resolve(__dirname, '../build')

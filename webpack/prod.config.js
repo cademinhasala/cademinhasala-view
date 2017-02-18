@@ -44,7 +44,7 @@ module.exports = {
     }),
   ],
   output: {
-    path: resolve('../dist'),
+    path: resolve('../build'),
     filename: '[hash].[name].js',
   },
   module: {

@@ -33,7 +33,7 @@ module.exports = {
   ],
   output: {
     filename: 'app.js',
-    path: resolve('../dist'),
+    path: resolve('../build'),
     publicPath: `http://${host}:${port}/`,
   },
   module: {
