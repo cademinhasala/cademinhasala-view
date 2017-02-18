@@ -6,7 +6,7 @@ import Divider from 'material-ui/Divider'
 const About = () => (
   <div>
     <Card >
-      <CardText>
+      <CardText style={{textAlign: 'justify'}}>
         Tudo começou no inicio do semestre passado, época de arthe e todo mundo pensando em algum
         tipo de projeto,
         até que meu amigo <strong> Michel Ribeiro </strong> teve uma sacada e lembrou desse problema
