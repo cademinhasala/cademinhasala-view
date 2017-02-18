@@ -3,6 +3,7 @@ const conditional = require('koa-conditional-get')
 const etag = require('koa-etag')
 const logger = require('koa-logger')
 const serve = require('koa-static')
+const views = require('koa-views')
 const htmlRouter = require('./routes/html')
 const { root } = require('./config')
 
@@ -13,6 +14,12 @@ app.use(logger())
 app.use(conditional())
 app.use(etag())
 
+app.use(views(root, {
+  extension: 'njk',
+  map: {
+    njk: 'nunjucks',
+  },
+}))
 app.use(htmlRouter.routes())
 
 const ONE_YEAR = 365 * 24 * 60 * 60 * 1000

@@ -20,7 +20,7 @@ module.exports = {
   devtool: 'cheap-module-eval-source-map',
   plugins: [
     new HtmlWebpackPlugin({
-      template: resolve('../src/index.html'),
+      template: resolve('../src/views/index.njk'),
     }),
     new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.HotModuleReplacementPlugin(),
@@ -39,8 +39,8 @@ module.exports = {
   module: {
     loaders: [
       {
-        test: /\.html$/,
-        loader: 'html',
+        test: /\.njk$/,
+        loaders: ['html', 'nunjucks-html'],
       },
       {
         test: /\.jsx?$/,

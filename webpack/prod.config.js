@@ -19,7 +19,8 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: resolve('../src/index.html'),
+      filename: 'index.njk',
+      template: resolve('../src/views/index.njk'),
     }),
     new webpack.optimize.UglifyJsPlugin({
       compress: {
@@ -49,7 +50,7 @@ module.exports = {
   module: {
     loaders: [
       {
-        test: /\.html$/,
+        test: /\.njk$/,
         loader: 'html',
       },
       {
