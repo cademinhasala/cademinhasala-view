@@ -8,6 +8,7 @@ import Divider from 'material-ui/Divider'
 import Date from 'material-ui/svg-icons/action/date-range'
 import DialogFilter from './DialogFilter'
 import { getTurmas } from '../actions'
+import Star from './Star'
 
 class CardClass extends PureComponent {
   static PAGE_SIZE = 30
@@ -34,6 +35,7 @@ class CardClass extends PureComponent {
   renderCard = (turmas, index) => (
     <div key={index} className="card">
       <Card>
+        <Star values={turmas}/>
         <CardHeader
           title={turmas.dis}
           subtitle={turmas.codTurma}

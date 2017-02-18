@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react'
 import { Provider } from 'react-redux'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import CardClass from './CardClass'
+import Favorites from './Favorites'
 import About from './About'
 import FontIcon from 'material-ui/FontIcon'
 import store from '../store'
@@ -44,8 +45,11 @@ class App extends PureComponent {
             >
               <CardClass />
             </Tab>
-            <Tab label="Sobre" value={1}>
-              {currentTab === 1 && <About />}
+            <Tab label="Favoritos" value={1}>
+              {currentTab === 1 && <Favorites />}
+            </Tab>
+            <Tab label="Sobre" value={2}>
+              {currentTab === 2 && <About />}
             </Tab>
           </Tabs>
         </MuiThemeProvider>
