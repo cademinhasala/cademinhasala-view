@@ -4,9 +4,9 @@ import injectTapEventPlugin from 'react-tap-event-plugin'
 import App from './Components/App'
 import './style.css'
 
-injectTapEventPlugin();
+injectTapEventPlugin()
 
 ReactDOM.render(
   <App />,
   document.getElementById('root')
-);
+)

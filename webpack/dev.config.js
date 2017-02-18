@@ -34,22 +34,26 @@ module.exports = {
   output: {
     filename: 'app.js',
     path: resolve('../build'),
-    publicPath: `http://${host}:${port}/`,
+    publicPath: `//${host}:${port}/`,
   },
   module: {
     loaders: [
       {
         test: /\.njk$/,
-        loaders: ['html', 'nunjucks-html'],
+        loaders: ['html-loader', 'nunjucks-html-loader'],
       },
       {
         test: /\.jsx?$/,
         exclude: /node_modules/,
-        loaders: ['react-hot', 'babel'],
+        loaders: [
+          'react-hot-loader', `babel-loader?${JSON.stringify({
+            extends: resolve('../.babelrc.web.json'),
+          })}`
+        ],
       },
       {
         test: /\.css$/,
-        loaders: ['style', 'css'],
+        loaders: ['style-loader', 'css-loader'],
       },
     ],
   },

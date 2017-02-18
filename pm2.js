@@ -6,7 +6,7 @@ const maxMemory = process.env.WEB_MEMORY || 512
 
 pm2.connect(function () {
   pm2.start({
-    script: path.resolve(__dirname, 'index.js'),
+    script: path.resolve(__dirname, './build/node/main.js'),
     name: 'CadeMinhaSala',
     exec_mode: 'cluster', // https://github.com/Unitech/PM2/blob/master/ADVANCED_README.md#schema
     instances: instances,

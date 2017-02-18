@@ -5,7 +5,6 @@ const logger = require('koa-logger')
 const serve = require('koa-static')
 const views = require('koa-views')
 const htmlRouter = require('./routes/html')
-const { root } = require('./config')
 
 const port = process.env.PORT || 8080
 
@@ -14,6 +13,7 @@ app.use(logger())
 app.use(conditional())
 app.use(etag())
 
+const root = './build/web'
 app.use(views(root, {
   extension: 'njk',
   map: {
