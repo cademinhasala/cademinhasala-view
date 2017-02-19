@@ -7,9 +7,6 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const nodeExternals = require('webpack-node-externals')
 const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin')
 
-const host = '0.0.0.0'
-const port = process.env.PORT || 8080
-
 function resolve(to) {
   return path.resolve(__dirname, to)
 }
@@ -28,6 +25,7 @@ module.exports = [
     output: {
       filename: '[name].js',
       path: resolve('../build/node'),
+      publicPath: '/',
     },
     plugins,
     module: {
@@ -51,10 +49,6 @@ module.exports = [
     entry: {
       vendor: ['babel-polyfill', 'whatwg-fetch', 'react', 'react-dom'],
       index: './src/index.jsx',
-    },
-    devServer: {
-      host,
-      port,
     },
     plugins: [
       ...plugins,
