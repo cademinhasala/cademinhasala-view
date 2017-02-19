@@ -121,7 +121,7 @@ class Filters extends Component {
 
         <div className="itemWrapper">
           <div className="buttonWrapper">
-            <RaisedButton className="button" label="Limpar Tudo" onTouchTap={this.clearFilters} />
+            <RaisedButton className="button" secondary={true} label="Limpar Tudo" onTouchTap={this.clearFilters} />
           </div>
         </div>
 
