@@ -26,4 +26,6 @@ app.use(etag())
 const ONE_YEAR = 365 * 24 * 60 * 60 * 1000
 app.use(serve(root, { maxage: ONE_YEAR }))
 
-app.listen(port)
+const server = app.listen(port, () => {
+  console.log('opened server on', server.address())
+})
