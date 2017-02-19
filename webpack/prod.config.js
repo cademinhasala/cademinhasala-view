@@ -14,8 +14,7 @@ function resolve(to) {
 }
 
 const plugins = [
-  new webpack.optimize.DedupePlugin(),
-  new webpack.optimize.OccurrenceOrderPlugin(),
+  new webpack.NoEmitOnErrorsPlugin(),
 ]
 
 rimrafSync(resolve('../build/'))
@@ -31,20 +30,18 @@ module.exports = [
     },
     plugins,
     module: {
-      loaders: [
+      rules: [
         {
           test: /\.jsx?$/,
           exclude: /node_modules/,
           loader: 'babel-loader',
-          query: {
-            extends: resolve('../.babelrc.node.json'),
-          },
+          options: { extends: resolve('../.babelrc.node.json') },
         },
       ],
     },
     target: 'node',
     resolve: {
-      extensions: ['', '.js', '.jsx'],
+      extensions: ['.js', '.jsx'],
     },
   },
 
@@ -61,15 +58,26 @@ module.exports = [
     plugins: [
       ...plugins,
       new webpack.optimize.UglifyJsPlugin({
-        compress: {
-          warnings: false,
-        },
         comments: false,
-        sourceMap: false,
       }),
       new HtmlWebpackPlugin({
         filename: 'index.njk',
         template: resolve('../src/views/index.njk'),
+        minify: {
+          collapseBooleanAttributes: true,
+          collapseInlineTagWhitespace: true,
+          collapseWhitespace: true,
+          minifyJS: true,
+          minifyURLs: true,
+          quoteCharacter: '"',
+          removeAttributeQuotes: true,
+          removeComments: true,
+          removeEmptyAttributes: true,
+          removeRedundantAttributes: true,
+          sortAttributes: true,
+          sortClassName: true,
+          trimCustomFragments: true,
+        },
       }),
       new webpack.DefinePlugin({
         'process.env': {
@@ -93,7 +101,7 @@ module.exports = [
       publicPath: '/',
     },
     module: {
-      loaders: [
+      rules: [
         {
           test: /\.njk$/,
           loader: 'html-loader',
@@ -102,24 +110,36 @@ module.exports = [
           test: /\.jsx?$/,
           exclude: /node_modules/,
           loader: 'babel-loader',
-          query: {
-            extends: resolve('../.babelrc.web.json'),
-          },
+          options: { extends: resolve('../.babelrc.web.json') },
         },
         {
           test: /\.css$/,
-          loader: ExtractTextPlugin.extract([
-            'css-loader?minimize&importLoaders=1',
-            'postcss-loader',
-          ]),
+          loader: ExtractTextPlugin.extract({
+            fallback: 'style-loader',
+            use: [
+              {
+                loader: 'css-loader',
+                options: {
+                  minimize: true,
+                  importLoaders: 1,
+                },
+              },
+              {
+                loader: 'postcss-loader',
+                options: {
+                  plugins: () => ([
+                    require('autoprefixer'),
+                  ]),
+                }
+              },
+            ],
+          }),
         },
       ],
     },
     resolve: {
-      extensions: ['', '.js', '.jsx'],
+      extensions: ['.js', '.jsx'],
     },
-    postcss: () => ([
-      require('autoprefixer'),
-    ]),
+    target: 'web',
   }
 ]

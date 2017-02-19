@@ -2,7 +2,6 @@ import React from 'react'
 import compress from 'koa-compress'
 import ReactDOMServer from 'react-dom/server'
 import koaRouter from 'koa-router'
-import { Provider } from 'react-redux'
 import App from '../../src/Components/App'
 import { getTurmas } from '../../src/actions'
 import configureStore from '../../src/store/configure-store'
@@ -12,11 +11,7 @@ const store = configureStore()
 let locals = {}
 store.subscribe(() => {
   locals = {
-    mount: ReactDOMServer.renderToString(
-      <Provider store={store}>
-        <App />
-      </Provider>
-    ),
+    mount: ReactDOMServer.renderToString(<App store={store} />),
     preloadedState: store.getState(),
   }
 })

@@ -1,11 +1,15 @@
 import React, { PropTypes, PureComponent } from 'react'
+import { Provider } from 'react-redux'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
-import CardClass from './CardClass'
-import About from './About'
 import FontIcon from 'material-ui/FontIcon'
 import { Tabs, Tab } from 'material-ui/Tabs'
 import getMuiTheme from 'material-ui/styles/getMuiTheme'
 import { blueGrey500, deepOrangeA400, blueGrey700 } from 'material-ui/styles/colors'
+import injectTapEventPlugin from 'react-tap-event-plugin'
+import CardClass from './CardClass'
+import About from './About'
+
+injectTapEventPlugin()
 
 const muiTheme = getMuiTheme({
   palette: {
@@ -13,9 +17,15 @@ const muiTheme = getMuiTheme({
     primary2Color: blueGrey700,
     accent1Color: deepOrangeA400,
   },
+}, {
+  userAgent: global.navigator
+    ? global.navigator.userAgent
+    : 'all',
 })
 
 class App extends PureComponent {
+  static propTypes = { store: Provider.propTypes.store }
+
   state = { currentTab: 0 }
 
   handleChange = (value) => {
@@ -25,27 +35,30 @@ class App extends PureComponent {
   }
 
   render() {
+    const { store } = this.props
     const { currentTab } = this.state
 
     return (
-      <MuiThemeProvider muiTheme={muiTheme}>
-        <Tabs
-          contentContainerClassName="tabsContent"
-          onChange={this.handleChange}
-          value={currentTab}
-        >
-          <Tab
-            label="Cadê Minha Sala"
-            icon={<FontIcon className="muidocs-icon-action-home" />}
-            value={0}
+      <Provider store={store}>
+        <MuiThemeProvider muiTheme={muiTheme}>
+          <Tabs
+            contentContainerClassName="tabsContent"
+            onChange={this.handleChange}
+            value={currentTab}
           >
-            <CardClass />
-          </Tab>
-          <Tab label="Sobre" value={1}>
-            {currentTab === 1 && <About />}
-          </Tab>
-        </Tabs>
-      </MuiThemeProvider>
+            <Tab
+              label="Cadê Minha Sala"
+              icon={<FontIcon className="muidocs-icon-action-home" />}
+              value={0}
+            >
+              <CardClass />
+            </Tab>
+            <Tab label="Sobre" value={1}>
+              {currentTab === 1 && <About />}
+            </Tab>
+          </Tabs>
+        </MuiThemeProvider>
+      </Provider>
     )
   }
 }
