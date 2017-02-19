@@ -5,6 +5,7 @@ const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const nodeExternals = require('webpack-node-externals')
+const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin')
 
 const host = '0.0.0.0'
 const port = process.env.PORT || 8080
@@ -78,6 +79,10 @@ module.exports = [
           sortClassName: true,
           trimCustomFragments: true,
         },
+      }),
+      new ScriptExtHtmlWebpackPlugin({
+        sync: ['vendor'],
+        defaultAttribute: 'async',
       }),
       new webpack.DefinePlugin({
         'process.env': {
