@@ -21,17 +21,17 @@ module.exports = {
   },
   devtool: 'eval',
   plugins: [
-    new HtmlWebpackPlugin({
-      template: resolve('../src/views/index.njk'),
-    }),
-    new webpack.HotModuleReplacementPlugin(),
-    new webpack.NamedModulesPlugin(),
     new webpack.NoEmitOnErrorsPlugin(),
     new webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: JSON.stringify('development'),
       },
     }),
+    new HtmlWebpackPlugin({
+      template: resolve('../src/views/index.njk'),
+    }),
+    new webpack.NamedModulesPlugin(),
+    new webpack.HotModuleReplacementPlugin(),
   ],
   output: {
     filename: 'bundle.js',

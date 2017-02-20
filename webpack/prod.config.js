@@ -11,10 +11,6 @@ function resolve(to) {
   return path.resolve(__dirname, to)
 }
 
-const plugins = [
-  new webpack.NoEmitOnErrorsPlugin(),
-]
-
 rimrafSync(resolve('../build/'))
 
 module.exports = [
@@ -27,7 +23,9 @@ module.exports = [
       path: resolve('../build/node'),
       publicPath: '/',
     },
-    plugins,
+    plugins: [
+      new webpack.NoEmitOnErrorsPlugin(),
+    ],
     module: {
       rules: [
         {
@@ -51,9 +49,15 @@ module.exports = [
       index: './src/index.jsx',
     },
     plugins: [
-      ...plugins,
-      new webpack.optimize.UglifyJsPlugin({
-        comments: false,
+      new webpack.NoEmitOnErrorsPlugin(),
+      new webpack.DefinePlugin({
+        'process.env': {
+          NODE_ENV: JSON.stringify('production'),
+        },
+      }),
+      new webpack.optimize.CommonsChunkPlugin({
+        name: 'vendor',
+        minChunks: Infinity,
       }),
       new HtmlWebpackPlugin({
         filename: 'index.njk',
@@ -78,20 +82,14 @@ module.exports = [
         sync: ['vendor'],
         defaultAttribute: 'async',
       }),
-      new webpack.DefinePlugin({
-        'process.env': {
-          NODE_ENV: JSON.stringify('production'),
-        },
-      }),
       new ExtractTextPlugin('[contenthash].[name].css'),
+      new webpack.optimize.UglifyJsPlugin({
+        comments: false,
+      }),
       new CompressionPlugin({
         asset: "[path].gz[query]",
         algorithm: "gzip",
         minRatio: 0.8
-      }),
-      new webpack.optimize.CommonsChunkPlugin({
-        name: 'vendor',
-        minChunks: Infinity,
       }),
     ],
     output: {
