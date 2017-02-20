@@ -11,6 +11,8 @@ import { Scrollbars } from 'react-custom-scrollbars'
 import DialogFilter from './DialogFilter'
 import { getTurmas } from '../actions'
 
+const hideScrollbar = (props) => <div {...props} hidden />
+
 class CardClass extends PureComponent {
   static PAGE_SIZE = 30
 
@@ -101,7 +103,9 @@ class CardClass extends PureComponent {
     const { isLoading, items } = this.state
     return (
       <Scrollbars
-        autoHide
+        className="scrollbars"
+        renderTrackHorizontal={hideScrollbar}
+        renderThumbHorizontal={hideScrollbar}
         hideTracksWhenNotNeeded
         universal
       >

@@ -1,18 +1,14 @@
-* {
-  box-sizing: inherit;
-}
-
 html {
   box-sizing: border-box;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
 }
 
 body {
   background-color: #f1f1f1;
   overflow: hidden;
-}
-
-[hidden] {
-  display: none;
 }
 
 .searchDiv {
@@ -26,6 +22,10 @@ body {
 .itemWrapper {
   display: flex;
   margin: 2px 30px 0;
+}
+
+.scrollbars > div:first-child {
+  overflow-x: hidden !important;
 }
 
 .raisedButton {
@@ -62,6 +62,7 @@ body {
   flex-wrap: wrap;
   justify-content: space-around;
   padding: 20px;
+  width: 100vw;
 }
 
 .card {
