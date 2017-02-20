@@ -42,27 +42,25 @@ class CardClass extends PureComponent {
     }
   }
 
-  renderCard = (turmas, index) => (
-    <div key={index} className="card">
+  renderCard = (turma) => (
+    <div key={turma.id} className="card">
       <Card>
         <CardHeader
-          title={turmas.dis}
-          subtitle={turmas.codTurma}
+          title={turma.dis}
+          subtitle={turma.codTurma}
           avatar={require('../img/book.png')}
           actAsExpander={true}
           showExpandableButton={true}
         />
         <article>
-          <div className="classStyle">SALA {turmas.sala}</div>
-
+          <div className="classStyle">SALA {turma.sala}</div>
 
           <div className="timer">
             <div className="clock">
               <Date />
             </div>
-            <div className="time">{turmas.dia}</div>
+            <div className="time">{turma.dia}</div>
           </div>
-
 
         </article>
         <CardText expandable={true}>
@@ -70,13 +68,13 @@ class CardClass extends PureComponent {
           <List>
             <Subheader>Mais informações</Subheader>
             <ListItem
-              primaryText={"Professor: " + turmas.prof}
+              primaryText={"Professor: " + turma.prof}
             />
             <ListItem
-              primaryText={"Curso: " + turmas.sem + " " + turmas.curso}
+              primaryText={"Curso: " + turma.sem + " " + turma.curso}
             />
             <ListItem
-              primaryText={"Compartilhada: " + turmas.comp}
+              primaryText={"Compartilhada: " + turma.comp}
             />
           </List>
         </CardText>
