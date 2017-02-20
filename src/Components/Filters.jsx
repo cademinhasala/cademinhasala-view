@@ -6,9 +6,7 @@ import IconButton from 'material-ui/IconButton'
 import RaisedButton from 'material-ui/RaisedButton'
 import CloseIcon from 'material-ui/svg-icons/navigation/close'
 import filter from 'lodash/filter'
-import compose from 'lodash/flowRight'
 import omit from 'lodash/omit'
-import sortedUniq from 'lodash/sortedUniq'
 import range from 'lodash/range'
 import deburr from 'lodash/deburr'
 import { setFilteredTurmas, setFilters } from '../actions'
@@ -83,15 +81,18 @@ class Filters extends Component {
 
   render() {
     const { filteredTurmas, filters } = this.props
+
     const [codTurmas, disciplinas, dias] = filteredTurmas
-      .reduce((arr, turma) => {
+      .reduce((arr, { codTurma, dia, dis }) => {
         const [codTurmas, disciplinas, dias] = arr
-        codTurmas.push(turma.codTurma)
-        disciplinas.push(turma.dis)
-        dias.push(turma.dia)
+
+        if (!codTurmas.includes(codTurma)) codTurmas.push(codTurma)
+        if (!dias.includes(dia)) dias.push(dia)
+        if (!disciplinas.includes(dis)) disciplinas.push(dis)
+
         return arr
       }, [[], [], []])
-      .map(compose(sortedUniq, sort))
+      .map(sort)
 
     return (
       <div className="searchDiv">
@@ -105,7 +106,7 @@ class Filters extends Component {
             onChange={this.handleChange('dis')}
             maxHeight={300}
           >
-            {disciplinas.map(dis =>
+            {disciplinas.map((dis) =>
               <MenuItem key={dis} value={dis} primaryText={dis} />
             )}
           </SelectField>
@@ -125,7 +126,7 @@ class Filters extends Component {
             onChange={this.handleChange('dia')}
             maxHeight={300}
           >
-            {dias.map(dia =>
+            {dias.map((dia) =>
               <MenuItem key={dia} value={dia} primaryText={dia} />
             )}
           </SelectField>
@@ -145,7 +146,7 @@ class Filters extends Component {
             onChange={this.handleChange('codTurma')}
             maxHeight={300}
           >
-            {codTurmas.map(codTurma =>
+            {codTurmas.map((codTurma) =>
               <MenuItem key={codTurma} value={codTurma} primaryText={codTurma} />
             )}
           </SelectField>
@@ -177,7 +178,6 @@ const mapStateToProps = (state) => ({
   filteredTurmas: state.filteredTurmas,
   filters: state.filters,
 })
-
 
 const mapDispatchToProps = { setFilteredTurmas, setFilters }
 
