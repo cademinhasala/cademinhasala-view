@@ -107,7 +107,6 @@ class CardClass extends PureComponent {
         renderTrackHorizontal={hideScrollbar}
         renderThumbHorizontal={hideScrollbar}
         hideTracksWhenNotNeeded
-        universal
       >
         <div
           className="cardList">
