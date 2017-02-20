@@ -5,7 +5,9 @@ import Waypoint from 'react-waypoint'
 import { List, ListItem } from 'material-ui/List'
 import Subheader from 'material-ui/Subheader'
 import Divider from 'material-ui/Divider'
+import Location from 'material-ui/svg-icons/communication/location-on'
 import Date from 'material-ui/svg-icons/action/date-range'
+import { Scrollbars } from 'react-custom-scrollbars'
 import DialogFilter from './DialogFilter'
 import { getTurmas } from '../actions'
 
@@ -43,43 +45,43 @@ class CardClass extends PureComponent {
   }
 
   renderCard = (turma) => (
-    <div key={turma.id} className="card">
-      <Card>
-        <CardHeader
-          title={turma.dis}
-          subtitle={turma.codTurma}
-          avatar={require('../img/book.png')}
-          actAsExpander={true}
-          showExpandableButton={true}
-        />
-        <article>
-          <div className="classStyle">SALA {turma.sala}</div>
+    <Card key={turma.id} className="card">
+      <CardHeader
+        title={turma.dis}
+        subtitle={turma.codTurma}
+        avatar={require('../img/book.png')}
+        actAsExpander
+        showExpandableButton
+      />
 
-          <div className="timer">
-            <div className="clock">
-              <Date />
-            </div>
-            <div className="time">{turma.dia}</div>
-          </div>
+      <CardText>
+        <div className="cardDescription">
+          <span className="cardDescription-icon"><Location /></span>
+          <span>SALA {turma.sala}</span>
+        </div>
+        <div className="cardDescription">
+          <span className="cardDescription-icon"><Date /></span>
+          <span>{turma.dia}</span>
+        </div>
+      </CardText>
 
-        </article>
-        <CardText expandable={true}>
-          <Divider />
-          <List>
-            <Subheader>Mais informações</Subheader>
-            <ListItem
-              primaryText={"Professor: " + turma.prof}
-            />
-            <ListItem
-              primaryText={"Curso: " + turma.sem + " " + turma.curso}
-            />
-            <ListItem
-              primaryText={"Compartilhada: " + turma.comp}
-            />
-          </List>
-        </CardText>
-      </Card>
-    </div>
+      <CardText expandable>
+        <Divider />
+        <List>
+          <Subheader>Mais informações</Subheader>
+          <ListItem
+            primaryText={"Professor: " + turma.prof}
+          />
+          <ListItem
+            primaryText={"Curso: " + turma.sem + " " + turma.curso}
+          />
+          <ListItem
+            primaryText={"Compartilhada: " + turma.comp}
+          />
+        </List>
+      </CardText>
+
+    </Card>
   )
 
   loadMoreItems = () => {
@@ -98,8 +100,13 @@ class CardClass extends PureComponent {
   render() {
     const { isLoading, items } = this.state
     return (
-      <div>
-        <div className="cardList">
+      <Scrollbars
+        autoHide
+        hideTracksWhenNotNeeded
+        universal
+      >
+        <div
+          className="cardList">
           {items.map(this.renderCard)}
           <DialogFilter />
         </div>
@@ -108,7 +115,7 @@ class CardClass extends PureComponent {
             <Waypoint onEnter={this.loadMoreItems} />
           )}
         </div>
-      </div>
+      </Scrollbars>
     )
   }
 }

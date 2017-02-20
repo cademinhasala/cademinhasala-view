@@ -8,6 +8,7 @@ html {
 
 body {
   background-color: #f1f1f1;
+  overflow: hidden;
 }
 
 [hidden] {
@@ -56,6 +57,7 @@ body {
 }
 
 .cardList {
+  align-items: flex-start;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
@@ -63,8 +65,17 @@ body {
 }
 
 .card {
-  margin: 20px 0px 0;
-  width: 30%;
+  flex: 0 0 30%;
+  margin: 0 0 20px;
+}
+
+.cardDescription {
+  align-items: center;
+  display: flex;
+}
+
+.cardDescription-icon {
+  margin: 0 8px;
 }
 
 .bodyWrapper {
@@ -72,19 +83,8 @@ body {
   flex-direction: column;
 }
 
-header {
-  flex: 1;
-  display: flex;
-}
-
 .iconStyle {
   margin: 10px;
-}
-
-.info {
-  top: 17px;
-  height: 86px;
-  position: relative;
 }
 
 .star {
@@ -94,40 +94,6 @@ header {
   display: none;
 }
 
-article {
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-  font-family: Roboto, sans-serif;
-}
-
-footer {
-  flex: 3;
-  display: flex;
-  align-items: flex-end;
-}
-
-.clock {
-  bottom: 3px;
-  position: relative;
-}
-
-.timer {
-  display: flex;
-}
-
-.time {
-  margin-bottom: 15px;
-  margin-right: 30px;
-  margin-left: 10px;
-}
-
-.classStyle {
-  margin-bottom: 15px;
-  margin-left: 72px;
-  margin-right: auto;
-}
-
 .searchButton {
   position: fixed;
   bottom: 16px;
@@ -135,8 +101,7 @@ footer {
   z-index: 1;
 }
 
-.tabsContent {
-  overflow: auto;
+.tabsContent > * {
   height: calc(100vh - 74px);
 }
 
@@ -153,34 +118,9 @@ footer {
   text-decoration: none;
 }
 
-.aboutFooter {
-  margin: 10px;
-}
-
-.aboutInfo {
-  text-align: justify;
-  position: relative;
-  top: 17px;
-  width: 581px;
-  margin: auto auto 20px;
-  font-family: Roboto, sans-serif;
-  font-size: 20px;
-}
-
-@media only screen and (min-width: 1080px) {
-  .itemWrapper {
-    width: 80%;
-  }
-}
-
 @media only screen and (max-width: 1080px) {
   .profileWrapper {
     flex-direction: column;
-  }
-
-  article {
-    flex-direction: column;
-    align-items: center;
   }
 
   .searchDiv {
@@ -212,17 +152,6 @@ footer {
   }
 
   .card {
-    width: 100%;
-  }
-
-  .classStyle {
-    margin-bottom: 15px;
-    left: 0;
-    margin-left: 0;
-    margin-right: 0;
-  }
-
-  .info {
-    top: 0;
+    flex: 1 0 100%;
   }
 }
