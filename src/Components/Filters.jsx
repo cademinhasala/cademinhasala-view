@@ -8,9 +8,42 @@ import CloseIcon from 'material-ui/svg-icons/navigation/close'
 import filter from 'lodash/filter'
 import compose from 'lodash/flowRight'
 import omit from 'lodash/omit'
-import sortBy from 'lodash/sortBy'
 import sortedUniq from 'lodash/sortedUniq'
+import range from 'lodash/range'
+import deburr from 'lodash/deburr'
 import { setFilteredTurmas, setFilters } from '../actions'
+
+const charMap = range(0, 256).reduce((map, n) => {
+  const str = String.fromCharCode(n)
+  map[str] = deburr(str).charCodeAt(0)
+  return map
+}, {})
+
+function getCharCode(char) {
+  const code = charMap[char]
+  return code === undefined
+    ? char.charCodeAt(0)
+    : code
+}
+
+function compareChar(a, b) {
+  return getCharCode(a) - getCharCode(b)
+}
+
+function compareWord(a, b) {
+  const aLength = a.length
+  const bLength = b.length
+  const shortestWordLength = Math.min(aLength, bLength)
+  for (let i = 0; i < shortestWordLength; i++) {
+    const result = compareChar(a[i], b[i])
+    if (result !== 0) return result
+  }
+  return aLength - bLength
+}
+
+function sort(arr) {
+  return arr.sort(compareWord)
+}
 
 class Filters extends Component {
   // To avoid copying turmas to filteredTurmas and increasing the size of HTML from server-rendering
@@ -54,7 +87,7 @@ class Filters extends Component {
         dias.push(turma.dia)
         return arr
       }, [[], [], []])
-      .map(compose(sortedUniq, sortBy))
+      .map(compose(sortedUniq, sort))
 
     return (
       <div className="searchDiv">
@@ -93,7 +126,7 @@ class Filters extends Component {
             )}
           </SelectField>
           <div className="close" hidden={!filters.dia}>
-            <IconButton style={{ color: '#FFC107' }} onTouchTap={this.clearFilter('dia')}>
+            <IconButton onTouchTap={this.clearFilter('dia')}>
               <CloseIcon />
             </IconButton>
           </div>

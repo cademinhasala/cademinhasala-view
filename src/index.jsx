@@ -18,7 +18,7 @@ render(App)
 
 if (module.hot) {
   module.hot.accept('./Components/App', () => {
-    const NextRoot = require('./Components/App').default;
+    const NextRoot = require('./Components/App').default
     render(NextRoot)
   })
 }
