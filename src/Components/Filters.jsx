@@ -13,28 +13,32 @@ import range from 'lodash/range'
 import deburr from 'lodash/deburr'
 import { setFilteredTurmas, setFilters } from '../actions'
 
-const charMap = range(0, 256).reduce((map, n) => {
-  const str = String.fromCharCode(n)
-  map[str] = deburr(str).charCodeAt(0)
-  return map
-}, {})
+const latin1SupplementChars = [
+  ...range(0xc0, 0xd6 + 1),
+  ...range(0xd8, 0xf6 + 1),
+  ...range(0xf8, 0xff + 1),
+]
+
+const charMap = latin1SupplementChars
+  .reduce((map, n) => {
+    const str = String.fromCharCode(n)
+    map[str] = deburr(str).charCodeAt(0)
+    return map
+  }, {})
 
 function getCharCode(char) {
-  const code = charMap[char]
-  return code === undefined
-    ? char.charCodeAt(0)
-    : code
+  return charMap[char] || char.charCodeAt(0)
 }
 
 function compareChar(a, b) {
   return getCharCode(a) - getCharCode(b)
 }
 
-function compareWord(a, b) {
+function compareString(a, b) {
   const aLength = a.length
   const bLength = b.length
-  const shortestWordLength = Math.min(aLength, bLength)
-  for (let i = 0; i < shortestWordLength; i++) {
+  const shortestStringLength = Math.min(aLength, bLength)
+  for (let i = 0; i < shortestStringLength; i++) {
     const result = compareChar(a[i], b[i])
     if (result !== 0) return result
   }
@@ -42,7 +46,7 @@ function compareWord(a, b) {
 }
 
 function sort(arr) {
-  return arr.sort(compareWord)
+  return arr.sort(compareString)
 }
 
 class Filters extends Component {
@@ -94,12 +98,12 @@ class Filters extends Component {
 
         <div className="itemWrapper">
           <SelectField
+            autoWidth
             fullWidth
             floatingLabelText="Nome da Matéria"
             value={filters.dis}
             onChange={this.handleChange('dis')}
             maxHeight={300}
-            autoWidth={true}
           >
             {disciplinas.map(dis =>
               <MenuItem key={dis} value={dis} primaryText={dis} />
@@ -114,12 +118,12 @@ class Filters extends Component {
 
         <div className="itemWrapper">
           <SelectField
+            autoWidth
             fullWidth
             floatingLabelText="Dia e Horário"
             value={filters.dia}
             onChange={this.handleChange('dia')}
             maxHeight={300}
-            autoWidth={true}
           >
             {dias.map(dia =>
               <MenuItem key={dia} value={dia} primaryText={dia} />
@@ -134,12 +138,12 @@ class Filters extends Component {
 
         <div className="itemWrapper">
           <SelectField
+            autoWidth
             fullWidth
             floatingLabelText="Código da Turma"
             value={filters.codTurma}
             onChange={this.handleChange('codTurma')}
             maxHeight={300}
-            autoWidth={true}
           >
             {codTurmas.map(codTurma =>
               <MenuItem key={codTurma} value={codTurma} primaryText={codTurma} />
@@ -154,7 +158,12 @@ class Filters extends Component {
 
         <div className="itemWrapper">
           <div className="buttonWrapper">
-            <RaisedButton className="button" secondary={true} label="Limpar Tudo" onTouchTap={this.clearFilters} />
+            <RaisedButton
+              className="button"
+              secondary
+              label="Limpar Filtros"
+              onTouchTap={this.clearFilters}
+            />
           </div>
         </div>
 
