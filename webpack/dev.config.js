@@ -28,7 +28,9 @@ module.exports = {
       },
     }),
     new HtmlWebpackPlugin({
+      favicon: resolve('../src/img/favicon.png'),
       template: resolve('../src/views/index.njk'),
+      title: 'Cadê Minha Sala',
     }),
     new webpack.NamedModulesPlugin(),
     new webpack.HotModuleReplacementPlugin(),
@@ -36,7 +38,7 @@ module.exports = {
   output: {
     filename: 'bundle.js',
     path: resolve('../build'),
-    publicPath: `//${host}:${port}/`,
+    publicPath: '/',
   },
   module: {
     rules: [
@@ -58,6 +60,10 @@ module.exports = {
         test: /\.img$/,
         use: ['style-loader', 'img-loader'],
       },
+      {
+        test: /\.(jpe?g|png|gif|svg)$/i,
+        loader: 'file-loader',
+      }
     ],
   },
   resolve: {

@@ -15,7 +15,7 @@ const About = () => (
       <a className="profile" href="https://www.facebook.com/gabrielgene97">
         <Avatar
           size={150}
-          src="src/img/profile1.jpg"
+          src={require('../img/profile1.jpg')}
         />
         <h2>Gabriel Genê</h2>
       </a>
@@ -23,7 +23,7 @@ const About = () => (
       <a className="profile" href="https://www.facebook.com/michel.ribeiro.581">
         <Avatar
           size={150}
-          src="src/img/profile2.jpg"
+          src={require('../img/profile2.jpg')}
         />
         <h2>Michel Ribeiro</h2>
       </a>
@@ -31,7 +31,7 @@ const About = () => (
       <a className="profile" href="https://github.com/rafael-vitor">
         <Avatar
           size={150}
-          src="src/img/profile3.png"
+          src={require('../img/profile3.png')}
         />
         <h2>Rafael Vitor</h2>
       </a>
@@ -39,7 +39,7 @@ const About = () => (
       <a className="profile" href="https://www.facebook.com/felipe.matossantana">
         <Avatar
           size={150}
-          src="src/img/profile4.jpg"
+          src={require('../img/profile4.jpg')}
         />
         <h2>Felipe Matos</h2>
       </a>
@@ -47,7 +47,7 @@ const About = () => (
       <a className="profile" href="https://www.facebook.com/brunnodearaujo">
         <Avatar
           size={150}
-          src="src/img/profile5.jpg"
+          src={require('../img/profile5.jpg')}
         />
         <h2>Brunno Araújo</h2>
       </a>
@@ -55,7 +55,7 @@ const About = () => (
       <a className="profile" href="http://www.facebook.com/wmelo19">
         <Avatar
           size={150}
-          src="src/img/profile6.jpg"
+          src={require('../img/profile6.jpg')}
         />
         <h2>Wilson Melo</h2>
       </a>

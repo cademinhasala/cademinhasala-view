@@ -6,12 +6,15 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const nodeExternals = require('webpack-node-externals')
 const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin')
+const FaviconsWebpackPlugin = require('favicons-webpack-plugin')
 
 function resolve(to) {
   return path.resolve(__dirname, to)
 }
 
 rimrafSync(resolve('../build/'))
+
+const title = 'Cadê Minha Sala'
 
 module.exports = [
   // Server
@@ -33,6 +36,19 @@ module.exports = [
           exclude: /node_modules/,
           loader: 'babel-loader',
           options: { extends: resolve('../.babelrc.node.json') },
+        },
+        {
+          test: /\.(jpe?g|png|gif|svg)$/i,
+          use: [
+            {
+              loader: 'file-loader',
+              options: {
+                emitFile: false,
+                publicPath: '/img/',
+              },
+            },
+            'image-webpack-loader',
+          ],
         },
       ],
     },
@@ -62,6 +78,7 @@ module.exports = [
       new HtmlWebpackPlugin({
         filename: 'index.njk',
         template: resolve('../src/views/index.njk'),
+        title,
         minify: {
           collapseBooleanAttributes: true,
           collapseInlineTagWhitespace: true,
@@ -77,6 +94,38 @@ module.exports = [
           sortClassName: true,
           trimCustomFragments: true,
         },
+      }),
+      new FaviconsWebpackPlugin({
+        logo: resolve('../src/img/favicon.png'),
+        icons: {
+          android: false,
+          appleIcon: false,
+          appleStartup: false,
+          coast: false,
+          favicons: true,
+          firefox: false,
+          opengraph: false,
+          twitter: false,
+          yandex: false,
+          windows: false,
+        },
+        title,
+      }),
+      new FaviconsWebpackPlugin({
+        logo: resolve('../src/img/logo.jpg'),
+        icons: {
+          android: true,
+          appleIcon: true,
+          appleStartup: true,
+          coast: false,
+          favicons: false,
+          firefox: true,
+          opengraph: true,
+          twitter: true,
+          yandex: false,
+          windows: true,
+        },
+        title,
       }),
       new ScriptExtHtmlWebpackPlugin({
         sync: ['vendor'],
@@ -131,6 +180,19 @@ module.exports = [
               },
             ],
           }),
+        },
+        {
+          test: /\.(jpe?g|png|gif|svg)$/i,
+          use: [
+            {
+              loader: 'file-loader',
+              options: {
+                outputPath: 'img/',
+                publicPath: '/img/',
+              },
+            },
+            'image-webpack-loader',
+          ],
         },
       ],
     },
