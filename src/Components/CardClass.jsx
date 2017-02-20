@@ -48,7 +48,7 @@ class CardClass extends PureComponent {
         <CardHeader
           title={turmas.dis}
           subtitle={turmas.codTurma}
-          avatar="https://raw.githubusercontent.com/gabrielgene/class-finder/master/src/img/book.png"
+          avatar="src/img/book.png"
           actAsExpander={true}
           showExpandableButton={true}
         />

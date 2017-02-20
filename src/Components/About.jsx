@@ -15,7 +15,7 @@ const About = () => (
       <a className="profile" href="https://www.facebook.com/gabrielgene97">
         <Avatar
           size={150}
-          src="https://avatars2.githubusercontent.com/u/19671668?v=3&s=460"
+          src="src/img/profile1.jpg"
         />
         <h2>Gabriel Genê</h2>
       </a>
@@ -23,7 +23,7 @@ const About = () => (
       <a className="profile" href="https://www.facebook.com/michel.ribeiro.581">
         <Avatar
           size={150}
-          src="https://avatars0.githubusercontent.com/u/22729109?v=3&s=400"
+          src="src/img/profile2.jpg"
         />
         <h2>Michel Ribeiro</h2>
       </a>
@@ -31,7 +31,7 @@ const About = () => (
       <a className="profile" href="https://github.com/rafael-vitor">
         <Avatar
           size={150}
-          src="https://avatars1.githubusercontent.com/u/22510441?v=3&s=460"
+          src="src/img/profile3.png"
         />
         <h2>Rafael Vitor</h2>
       </a>
@@ -39,7 +39,7 @@ const About = () => (
       <a className="profile" href="https://www.facebook.com/felipe.matossantana">
         <Avatar
           size={150}
-          src="https://avatars1.githubusercontent.com/u/9686240?v=3&s=460"
+          src="src/img/profile4.jpg"
         />
         <h2>Felipe Matos</h2>
       </a>
@@ -47,9 +47,17 @@ const About = () => (
       <a className="profile" href="https://www.facebook.com/brunnodearaujo">
         <Avatar
           size={150}
-          src="https://avatars3.githubusercontent.com/u/15722974?v=3&s=460"
+          src="src/img/profile5.jpg"
         />
         <h2>Brunno Araújo</h2>
+      </a>
+
+      <a className="profile" href="http://www.facebook.com/wmelo19">
+        <Avatar
+          size={150}
+          src="src/img/profile6.jpg"
+        />
+        <h2>Wilson Melo</h2>
       </a>
     </div>
   </Card>
