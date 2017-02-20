@@ -54,6 +54,10 @@ module.exports = {
         test: /\.css$/,
         use: ['style-loader', 'css-loader'],
       },
+      {
+        test: /\.img$/,
+        use: ['style-loader', 'img-loader'],
+      },
     ],
   },
   resolve: {
