@@ -6,6 +6,7 @@ import { Tabs, Tab } from 'material-ui/Tabs'
 import getMuiTheme from 'material-ui/styles/getMuiTheme'
 import { blueGrey500, deepOrangeA400, blueGrey700 } from 'material-ui/styles/colors'
 import injectTapEventPlugin from 'react-tap-event-plugin'
+import { Scrollbars } from 'react-custom-scrollbars'
 import CardClass from './CardClass'
 import About from './About'
 
@@ -22,6 +23,8 @@ const muiTheme = getMuiTheme({
     ? global.navigator.userAgent
     : 'all',
 })
+
+const hideScrollbar = (props) => <div {...props} hidden />
 
 class App extends PureComponent {
   static propTypes = { store: Provider.propTypes.store }
@@ -51,10 +54,24 @@ class App extends PureComponent {
               icon={<FontIcon className="muidocs-icon-action-home" />}
               value={0}
             >
-              <CardClass />
+              <Scrollbars
+                className="scrollbars"
+                renderTrackHorizontal={hideScrollbar}
+                renderThumbHorizontal={hideScrollbar}
+                hideTracksWhenNotNeeded
+              >
+                <CardClass />
+              </Scrollbars>
             </Tab>
             <Tab label="Sobre" value={1}>
-              {currentTab === 1 && <About />}
+              <Scrollbars
+                className="scrollbars"
+                renderTrackHorizontal={hideScrollbar}
+                renderThumbHorizontal={hideScrollbar}
+                hideTracksWhenNotNeeded
+              >
+                {currentTab === 1 && <About />}
+              </Scrollbars>
             </Tab>
           </Tabs>
         </MuiThemeProvider>

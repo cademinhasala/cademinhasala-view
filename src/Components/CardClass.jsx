@@ -7,11 +7,8 @@ import Subheader from 'material-ui/Subheader'
 import Divider from 'material-ui/Divider'
 import Location from 'material-ui/svg-icons/communication/location-on'
 import Date from 'material-ui/svg-icons/action/date-range'
-import { Scrollbars } from 'react-custom-scrollbars'
 import DialogFilter from './DialogFilter'
 import { getTurmas } from '../actions'
-
-const hideScrollbar = (props) => <div {...props} hidden />
 
 class CardClass extends PureComponent {
   static PAGE_SIZE = 30
@@ -102,12 +99,7 @@ class CardClass extends PureComponent {
   render() {
     const { isLoading, items } = this.state
     return (
-      <Scrollbars
-        className="scrollbars"
-        renderTrackHorizontal={hideScrollbar}
-        renderThumbHorizontal={hideScrollbar}
-        hideTracksWhenNotNeeded
-      >
+      <div>
         <div
           className="cardList">
           {items.map(this.renderCard)}
@@ -118,7 +110,7 @@ class CardClass extends PureComponent {
             <Waypoint onEnter={this.loadMoreItems} />
           )}
         </div>
-      </Scrollbars>
+      </div>
     )
   }
 }
