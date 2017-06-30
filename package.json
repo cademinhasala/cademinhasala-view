@@ -55,6 +55,7 @@
     "react-dom": "^15.4.1",
     "react-hot-loader": "next",
     "react-redux": "^5.0.1",
+    "react-router": "^3.0.5",
     "react-swipeable-views": "^0.10.7",
     "react-tap-event-plugin": "^2.0.1",
     "react-waypoint": "^5.1.0",

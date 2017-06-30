@@ -1,9 +1,10 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { AppContainer } from 'react-hot-loader'
-import App from './Components/App'
+import App from './components/App'
 import store from './store'
 import './style.css'
+import MyRouter from './router.jsx'
 
 function render(Root) {
   ReactDOM.render(
@@ -14,11 +15,11 @@ function render(Root) {
   )
 }
 
-render(App)
+render(MyRouter)
 
 if (module.hot) {
-  module.hot.accept('./Components/App', () => {
-    const NextRoot = require('./Components/App').default
+  module.hot.accept('./router.jsx', () => {
+    const NextRoot = require('./router.jsx').default
     render(NextRoot)
   })
 }

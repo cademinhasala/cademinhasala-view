@@ -7,8 +7,8 @@ import getMuiTheme from 'material-ui/styles/getMuiTheme'
 import { blueGrey500, deepOrangeA400, blueGrey700 } from 'material-ui/styles/colors'
 import injectTapEventPlugin from 'react-tap-event-plugin'
 import { Scrollbars } from 'react-custom-scrollbars'
-import CardClass from './CardClass'
-import About from './About'
+import CardClass from '../CardClass'
+import About from '../About'
 
 injectTapEventPlugin()
 
