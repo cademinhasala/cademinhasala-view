@@ -1,9 +1,44 @@
-
 import React from 'react'
-import ReactDOM from 'react-dom'
+import AppBar from 'material-ui/AppBar'
+import SearchIcon from 'material-ui/svg-icons/action/search'
+import { blue800, white } from 'material-ui/styles/colors'
+import IconButton from 'material-ui/IconButton'
+import RaisedButton from 'material-ui/RaisedButton'
+import MenuItem from 'material-ui/MenuItem';
+import Drawer from 'material-ui/Drawer';
 
-const Salas = () => (
-  <h1>Salas</h1>
-)
+export default class Salas extends React.Component {
 
-export default Salas
+  constructor(props) {
+    super(props);
+    this.state = {open: false};
+  };
+
+  handleToggle = () => this.setState({open: !this.state.open});
+
+  handleClose = () => this.setState({open: false});
+
+  render() {
+    return (
+      <div>
+        <AppBar
+          title="Salas"
+          style={{backgroundColor: blue800}}
+          iconElementRight={<IconButton><SearchIcon/></IconButton>}
+          onLeftIconButtonTouchTap={this.handleToggle}
+        />
+        <Drawer
+          docked={false}
+          width={250}
+          open={this.state.open}
+          onRequestChange={(open) => this.setState({open})}
+        >
+          <MenuItem onTouchTap={this.handleClose} href='/#/' >Salas</MenuItem>
+          <MenuItem onTouchTap={this.handleClose} href='/#/minhas-salas'>Minhas Salas</MenuItem>
+          <MenuItem onTouchTap={this.handleClose} href='/#/mural'>Mural</MenuItem>
+          <MenuItem onTouchTap={this.handleClose} href=''>Sobre</MenuItem>
+        </Drawer>
+      </div>
+    );
+  }
+}
