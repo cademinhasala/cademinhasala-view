@@ -1,15 +1,14 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { Router, Route, hashHistory } from 'react-router'
-import Salas from './pages/Salas'
-import MinhasSalas from './pages/MinhasSalas'
 import { blueGrey500, deepOrangeA400, blueGrey700 } from 'material-ui/styles/colors'
 import getMuiTheme from 'material-ui/styles/getMuiTheme'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import injectTapEventPlugin from 'react-tap-event-plugin'
+import MinhasSalas from './pages/MinhasSalas'
 import Mural from './pages/Mural'
-import App from './components/App'
-
+import Sobre from './pages/Sobre'
+import Salas from './pages/Salas'
 
 const muiTheme = getMuiTheme({
   palette: {
@@ -25,11 +24,12 @@ const muiTheme = getMuiTheme({
 
 const MyRouter = () => (
   <MuiThemeProvider muiTheme={muiTheme}>
-    <Router history={hashHistory}>
-        <Route path="/" component={Salas} />
-        <Route path="/minhas-salas" component={MinhasSalas} />
-        <Route path="/mural" component={Mural} />
-    </Router>
+      <Router history={hashHistory}>
+          <Route path="/" component={Salas} />
+          <Route path="/minhas-salas" component={MinhasSalas} />
+          <Route path="/mural" component={Mural} />
+          <Route path="/sobre" component={Sobre} />
+      </Router>
   </MuiThemeProvider>
 )
 
