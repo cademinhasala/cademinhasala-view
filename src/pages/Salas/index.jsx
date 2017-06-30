@@ -36,7 +36,7 @@ export default class Salas extends React.Component {
           <MenuItem onTouchTap={this.handleClose} href='/#/' >Salas</MenuItem>
           <MenuItem onTouchTap={this.handleClose} href='/#/minhas-salas'>Minhas Salas</MenuItem>
           <MenuItem onTouchTap={this.handleClose} href='/#/mural'>Mural</MenuItem>
-          <MenuItem onTouchTap={this.handleClose} href=''>Sobre</MenuItem>
+          <MenuItem onTouchTap={this.handleClose} href='/#/sobre'>Sobre</MenuItem>
         </Drawer>
       </div>
     );
