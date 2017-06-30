@@ -22,6 +22,8 @@ const muiTheme = getMuiTheme({
     : 'all',
 })
 
+injectTapEventPlugin();
+
 const MyRouter = () => (
   <MuiThemeProvider muiTheme={muiTheme}>
       <Router history={hashHistory}>
