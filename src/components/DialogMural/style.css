@@ -1,0 +1,13 @@
+.fixedButton {
+  position: fixed;
+  bottom: 8px;
+  width: 98%;
+  z-index: 1;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}

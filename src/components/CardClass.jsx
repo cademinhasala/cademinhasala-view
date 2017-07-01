@@ -101,7 +101,7 @@ class CardClass extends PureComponent {
     return (
       <div>
         <div
-          className="cardList">
+          className="cardList"
           {items.map(this.renderCard)}
           <DialogFilter />
         </div>
