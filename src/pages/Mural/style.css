@@ -1,12 +1,13 @@
-.fixedButton {
-  position: fixed;
-  background-color: #6d4c41;
-  bottom: 8px;
-  width: 98%;
+.cardList {
+  align-items: flex-start;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 20px;
+  width: 100vw;
 }
 
-.container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.card {
+  flex: 0 0 30%;
+  margin: 0 0 20px;
 }

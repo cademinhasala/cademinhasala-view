@@ -1,50 +1,80 @@
 import React from 'react'
-import AppBar from 'material-ui/AppBar'
-import SearchIcon from 'material-ui/svg-icons/action/search'
 import { brown600, white } from 'material-ui/styles/colors'
-import IconButton from 'material-ui/IconButton'
 import RaisedButton from 'material-ui/RaisedButton'
-import MenuItem from 'material-ui/MenuItem';
-import Drawer from 'material-ui/Drawer';
+import { Card, CardHeader, CardMedia} from 'material-ui/Card'
+import { Scrollbars } from 'react-custom-scrollbars'
+import TopBar from '../../components/TopBar'
+import DialogMural from '../../components/DialogMural'
 import './style.css'
+
+const events = [
+  {
+    "id": "1",
+    "src": "https://cdn.pixabay.com/photo/2014/07/27/13/49/tree-402953__340.jpg",
+    "alt": "1"
+  },
+  {
+    "id": "2",
+    "src": "https://cdn.pixabay.com/photo/2014/07/27/13/49/tree-402953__340.jpg",
+    "alt": "2"
+  },
+  {
+    "id": "3",
+    "src": "https://cdn.pixabay.com/photo/2014/07/27/13/49/tree-402953__340.jpg",
+    "alt": "3"
+  },
+  {
+    "id": "4",
+    "src": "https://cdn.pixabay.com/photo/2014/07/27/13/49/tree-402953__340.jpg",
+    "alt": "3"
+  },
+  {
+    "id": "5",
+    "src": "https://cdn.pixabay.com/photo/2014/07/27/13/49/tree-402953__340.jpg",
+    "alt": "test"
+  },
+  {
+    "id": "6",
+    "src": "https://cdn.pixabay.com/photo/2014/07/27/13/49/tree-402953__340.jpg",
+    "alt": "test"
+  },
+  {
+    "id": "7",
+    "src": "https://cdn.pixabay.com/photo/2014/07/27/13/49/tree-402953__340.jpg",
+    "alt": "3"
+  },
+  {
+    "id": "8",
+    "src": "https://cdn.pixabay.com/photo/2014/07/27/13/49/tree-402953__340.jpg",
+    "alt": "3"
+  }
+]
+
 
 export default class Mural extends React.Component {
 
-  constructor(props) {
-    super(props);
-    this.state = {open: false};
-  };
+  renderCard = (event) => (
+    <Card key={event.id} className="card">
+        <img src={event.src} alt={event.alt} />
+    </Card>
+  )
 
-  handleToggle = () => this.setState({open: !this.state.open});
-
-  handleClose = () => this.setState({open: false});
 
   render() {
     return (
-      <div className="container">
-        <AppBar
-          title="Mural"
-          style={{backgroundColor: brown600}}
-          iconElementRight={<IconButton><SearchIcon/></IconButton>}
-          onLeftIconButtonTouchTap={this.handleToggle}
+      <div>
+        <TopBar
+          title={"Mural"}
+          bgColor={brown600}
         />
-        <Drawer
-          docked={false}
-          width={250}
-          open={this.state.open}
-          onRequestChange={(open) => this.setState({open})}
+        <Scrollbars
+          style={{ height: 820}}
         >
-          <MenuItem onTouchTap={this.handleClose} href='/#/' >Salas</MenuItem>
-          <MenuItem onTouchTap={this.handleClose} href='/#/minhas-salas'>Minhas Salas</MenuItem>
-          <MenuItem onTouchTap={this.handleClose} href='/#/mural'>Mural</MenuItem>
-          <MenuItem onTouchTap={this.handleClose} href='/#/sobre'>Sobre</MenuItem>
-        </Drawer>
-        <RaisedButton
-          label="Postar no Mural"
-          labelColor={white}
-          backgroundColor={brown600}
-          className="fixedButton"
-        />
+          <div className="cardList">
+          {events.map(this.renderCard)}
+          </div>
+        </Scrollbars>
+        <DialogMural />
       </div>
     );
   }

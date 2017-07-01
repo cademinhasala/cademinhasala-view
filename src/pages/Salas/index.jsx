@@ -6,6 +6,7 @@ import IconButton from 'material-ui/IconButton'
 import RaisedButton from 'material-ui/RaisedButton'
 import MenuItem from 'material-ui/MenuItem';
 import Drawer from 'material-ui/Drawer';
+import TopBar from '../../components/TopBar'
 
 export default class Salas extends React.Component {
 
@@ -21,23 +22,7 @@ export default class Salas extends React.Component {
   render() {
     return (
       <div>
-        <AppBar
-          title="Salas"
-          style={{backgroundColor: blue800}}
-          iconElementRight={<IconButton><SearchIcon/></IconButton>}
-          onLeftIconButtonTouchTap={this.handleToggle}
-        />
-        <Drawer
-          docked={false}
-          width={250}
-          open={this.state.open}
-          onRequestChange={(open) => this.setState({open})}
-        >
-          <MenuItem onTouchTap={this.handleClose} href='/#/' >Salas</MenuItem>
-          <MenuItem onTouchTap={this.handleClose} href='/#/minhas-salas'>Minhas Salas</MenuItem>
-          <MenuItem onTouchTap={this.handleClose} href='/#/mural'>Mural</MenuItem>
-          <MenuItem onTouchTap={this.handleClose} href='/#/sobre'>Sobre</MenuItem>
-        </Drawer>
+        <TopBar title={"Salas"} bgColor={blue800}/>
       </div>
     );
   }
