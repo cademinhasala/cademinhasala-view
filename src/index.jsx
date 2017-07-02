@@ -2,7 +2,6 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import { AppContainer } from 'react-hot-loader'
 import store from './store'
-import './style.css'
 import MyRouter from './router.jsx'
 
 function render(Root) {
