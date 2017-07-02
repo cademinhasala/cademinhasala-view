@@ -1,0 +1,16 @@
+.menuWrapper {
+  overflow: hidden;
+}
+
+.imgWrapper {
+  left: 50px;
+  position: relative;
+}
+
+.divider {
+  width: 100%;
+}
+
+.image {
+  height: 150px;
+}
