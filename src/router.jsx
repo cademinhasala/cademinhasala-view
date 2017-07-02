@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { Router, Route, hashHistory } from 'react-router'
-import { blueGrey500, deepOrangeA400, blueGrey700 } from 'material-ui/styles/colors'
+import { blue700, deepOrangeA400, blueGrey700 } from 'material-ui/styles/colors'
 import getMuiTheme from 'material-ui/styles/getMuiTheme'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import injectTapEventPlugin from 'react-tap-event-plugin'
@@ -9,10 +9,11 @@ import MinhasSalas from './pages/MinhasSalas'
 import Mural from './pages/Mural'
 import Sobre from './pages/Sobre'
 import Salas from './pages/Salas'
+import App from './components/App'
 
 const muiTheme = getMuiTheme({
   palette: {
-    primary1Color: blueGrey500,
+    primary1Color: blue700,
     primary2Color: blueGrey700,
     accent1Color: deepOrangeA400,
   },
