@@ -1,10 +1,10 @@
 .cardList {
-  align-items: flex-start;
+  align-items: center;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
   padding: 20px;
-  width: 100vw;
+  width: 90vw;
 }
 
 .card {

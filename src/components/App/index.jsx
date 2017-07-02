@@ -8,9 +8,7 @@ import { blueGrey500, deepOrangeA400, blueGrey700 } from 'material-ui/styles/col
 import injectTapEventPlugin from 'react-tap-event-plugin'
 import { Scrollbars } from 'react-custom-scrollbars'
 import CardClass from '../CardClass'
-import About from '../About'
 
-injectTapEventPlugin()
 
 const muiTheme = getMuiTheme({
   palette: {

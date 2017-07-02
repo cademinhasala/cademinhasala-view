@@ -1,5 +1,5 @@
 import React from 'react'
-import { brown600, white } from 'material-ui/styles/colors'
+import { brown700, white } from 'material-ui/styles/colors'
 import RaisedButton from 'material-ui/RaisedButton'
 import { Card, CardHeader, CardMedia} from 'material-ui/Card'
 import { Scrollbars } from 'react-custom-scrollbars'
@@ -55,7 +55,9 @@ export default class Mural extends React.Component {
 
   renderCard = (event) => (
     <Card key={event.id} className="card">
-        <img src={event.src} alt={event.alt} />
+        <CardMedia>
+        <img src="" alt={event.alt} />
+        </CardMedia>
     </Card>
   )
 
@@ -65,10 +67,10 @@ export default class Mural extends React.Component {
       <div>
         <TopBar
           title={"Mural"}
-          bgColor={brown600}
+          bgColor={brown700}
         />
         <Scrollbars
-          style={{ height: 820}}
+          style={{ height: 720}}
         >
           <div className="cardList">
           {events.map(this.renderCard)}
